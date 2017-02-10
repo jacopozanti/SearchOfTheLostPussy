@@ -5,39 +5,55 @@
  */
 package mapmaker;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Insets;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 /**
  *
- * @author d.gozzi
+ * @author BiPolar_Bears
  */
 public class MainPanel extends JPanel{
     
-    JButton[][] mainButton = new JButton[16][13];
+    JButton[][] mainButton = new JButton[20][11];
+    int IndiceI = 0;
+    int IndiceJ = 0;
     
-    public MainPanel(){
+    public MainPanel(TexturePanel textPanel){
         
-        for (int i = 0; i < 16; i++) {
+        this.setLayout(new GridLayout(11,20));
+        
+        for (int i = 0; i < 20; i++) {
+            IndiceI = i;
             
-            for (int j = 0; j < 13; j++) {
+            for (int j = 0; j < 11; j++) {
+                IndiceJ = j;
+                
                 mainButton[i][j]=new JButton();
                 mainButton[i][j].setPreferredSize(new Dimension(64,64));
                 mainButton[i][j].setMargin(new Insets(0, 0, 0, 0));
                 mainButton[i][j].setFocusPainted(false);
-                mainButton[i][j].setBorder(new EmptyBorder(0, 0, 0, 0));
                 
                 this.add(mainButton[i][j]);
                 
+                mainButton[i][j].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        
+                        JButton btn = (JButton)e.getSource();
+                        btn.setText(textPanel.getSelected());
+                        
+                    }
+                });
             }
             
         }
         
+    }
+    
+    public String getButtonText(int i, int j){
+        return mainButton[i][j].getText();
     }
     
 }

@@ -5,27 +5,78 @@
  */
 package mapmaker;
 
-import java.awt.Dimension;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
  *
- * @author d.gozzi
+ * @author BiPolar_Bears
  */
 public class MapMaker {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         JFrame mainFrame = new JFrame("MapMaker");
-        MainPanel mainPanel = new MainPanel();
+        
+        TexturePanel texturePanel = new TexturePanel();
+        MainPanel mainPanel = new MainPanel(texturePanel);
+        JTextField fileName = new JTextField();
+        JButton printLvl = new JButton("Crea Livello!");
+        
+        fileName.setPreferredSize(new Dimension(200,30));
+        printLvl.setPreferredSize(new Dimension(110,30));
+        
+        mainFrame.setLayout(new FlowLayout());
+        
         mainFrame.add(mainPanel);
-        mainFrame.setSize(new Dimension(1280,720));
+        mainFrame.add(texturePanel);
+        mainFrame.add(fileName);
+        mainFrame.add(printLvl);
+        
+        mainFrame.setSize(new Dimension(1480,805));
+        
         mainFrame.setVisible(true);
+        mainFrame.setResizable(false);
         mainFrame.setDefaultCloseOperation(3);
-
+        
+        printLvl.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    FileWriter fileWriter;
+                    fileWriter = new FileWriter(fileName.getText() + ".txt");
+                    
+                    BufferedWriter bufferedWriter;
+                    bufferedWriter = new BufferedWriter(fileWriter);
+                    
+                    for (int i = 0; i < 20; i++) {
+            
+                        for (int j = 0; j < 11; j++) {
+                            if(mainPanel.getButtonText(i, j) == ""){
+                                bufferedWriter.write("empty");
+                            }
+                            else{
+                                bufferedWriter.write(mainPanel.getButtonText(i, j));
+                            }
+                            bufferedWriter.write(" ");
+                        }
+                        bufferedWriter.newLine();
+                    }
+                    
+                    bufferedWriter.flush();
+                } catch (IOException ex) {
+                    Logger.getLogger(MapMaker.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        
         
     }
     
