@@ -5,6 +5,8 @@
  */
 package searchofthelostpussy;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author BiPolar_Bears
@@ -15,7 +17,12 @@ public class SearchOfTheLostPussy {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        JFrame gameFrame = new JFrame();
+        GameWindow gameWindow = new GameWindow();
+        gameFrame.add(gameWindow);
+        gameFrame.pack();
+        gameFrame.setVisible(true);
+        gameFrame.setDefaultCloseOperation(3);
         
         
     }

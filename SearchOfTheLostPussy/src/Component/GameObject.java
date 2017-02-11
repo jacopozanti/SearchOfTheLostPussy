@@ -14,14 +14,14 @@ import java.awt.image.BufferedImage;
  *
  * @author j.zanti
  */
-public interface GameObject {
+public abstract class GameObject {
     public enum Direction
     {
         RIGHT,
         LEFT,
         UP,
         DOWN
-    }
+    };
     public boolean isWall = false;
     public Rectangle hitBox = null;
     public Point posizione = null;
@@ -36,17 +36,17 @@ public interface GameObject {
     public boolean canMoveSX = false;
     public boolean canMoveUP = false;
     public boolean canMoveDW = false;
-    public Direction direction = null;
+    public Direction direction = Direction.RIGHT;
     public Thread movement = null;
     public Thread collision = null;
     public int speed = 0;
     public int life = 0;
     
     //MOVIMENTI
-    public void MoveLeft(int movement);
-    public void MoveRight(int movement);
-    public void MoveUp(int movement);
-    public void MoveDown(int movement);
+    public abstract void MoveLeft(int movement);
+    public abstract void MoveRight(int movement);
+    public abstract void MoveUp(int movement);
+    public abstract void MoveDown(int movement);
     
         
     
