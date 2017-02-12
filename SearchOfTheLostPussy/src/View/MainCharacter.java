@@ -24,8 +24,9 @@ public class MainCharacter extends GameObject {
             animable = true;
             speed = 1;
             ElementInGame.ElementInGame.add(this);
+            movement = new Thread();
+            movement.run();
     }
-
     @Override
     public void MoveLeft(int movement) {
         if(this.canMoveSX)
