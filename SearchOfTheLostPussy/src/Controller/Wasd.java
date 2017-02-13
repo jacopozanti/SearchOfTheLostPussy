@@ -14,12 +14,20 @@ import java.util.logging.Logger;
  * @author daddi
  */
 public class Wasd extends Thread {
+    
     public void run()
     {
-        while(true)
-        {
-            MainCharacter.instance.MoveLeft(100);
-
-        }
+        int x = 0;
+//        while(x<10)
+//        {
+//            MainCharacter.instance.MoveRight(5);
+//            x += 1;
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+        
     }
 }

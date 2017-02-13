@@ -27,9 +27,7 @@ public class SearchOfTheLostPussy {
         gameFrame.setDefaultCloseOperation(3);
         while(true)
         {
-            gameFrame.validate();
-            gameFrame.repaint();
-
+            gameWindow.repaint();
         }
         
         

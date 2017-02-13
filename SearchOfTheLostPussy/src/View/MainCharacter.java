@@ -6,6 +6,7 @@
 package View;
 
 import Component.*;
+import Controller.Wasd;
 import Model.ElementInGame;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -18,14 +19,18 @@ public class MainCharacter extends GameObject {
     public static MainCharacter instance = null; 
     public MainCharacter()
     {
-            instance = this;
-            hitBox = new Rectangle(64,64);
-            posizione = new Point(20,20);
-            animable = true;
-            speed = 1;
-            ElementInGame.ElementInGame.add(this);
-            movement = new Thread();
-            movement.run();
+        canMoveSX = true;
+        canMoveDX = true;
+        canMoveUP = true;
+        canMoveDW = true;
+        instance = this;
+        hitBox = new Rectangle(64,64);
+        posizione = new Point(20,20);
+        animable = true;
+        speed = 1;
+        ElementInGame.ElementInGame.add(this);
+        movement = new Wasd();
+        movement.start();
     }
     @Override
     public void MoveLeft(int movement) {

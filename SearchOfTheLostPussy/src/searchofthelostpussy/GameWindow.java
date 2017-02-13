@@ -31,9 +31,8 @@ public class GameWindow extends JPanel {
             super.paintComponent(g);
             for (Object object : ElementInGame.ElementInGame) {
                 g.drawRect(((GameObject)object).posizione.x, ((GameObject)object).posizione.y, ((GameObject)object).hitBox.height, ((GameObject)object).hitBox.width);
-                System.out.print("Hello");
             }
-
+            
     }
     
 }
