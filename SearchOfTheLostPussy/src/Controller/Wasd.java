@@ -13,21 +13,11 @@ import java.util.logging.Logger;
  *
  * @author daddi
  */
-public class Wasd extends Thread {
+public class Wasd extends GameObject {
     
     public void run()
     {
-        int x = 0;
-//        while(x<10)
-//        {
-//            MainCharacter.instance.MoveRight(5);
-//            x += 1;
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-        
+        isWall = true;
+        hitBox = new Rectangle(64,64);
     }
 }
