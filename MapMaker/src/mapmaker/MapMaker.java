@@ -24,8 +24,9 @@ public class MapMaker {
     public static void main(String[] args) throws IOException {
         
         JFrame mainFrame = new JFrame("MapMaker");
-        
+        JFrame textureFrame = new JFrame();
         TexturePanel texturePanel = new TexturePanel();
+        textureFrame.add(texturePanel);
         MainPanel mainPanel = new MainPanel(texturePanel);
         JTextField fileName = new JTextField();
         JButton printLvl = new JButton("Crea Livello!");
@@ -34,18 +35,21 @@ public class MapMaker {
         printLvl.setPreferredSize(new Dimension(110,30));
         
         mainFrame.setLayout(new FlowLayout());
-        
+        textureFrame.setLayout(new FlowLayout());
         mainFrame.add(mainPanel);
-        mainFrame.add(texturePanel);
-        mainFrame.add(fileName);
-        mainFrame.add(printLvl);
+        textureFrame.add(fileName);
+        textureFrame.add(printLvl);
         
         mainFrame.setSize(new Dimension(1480,805));
         
         mainFrame.setVisible(true);
-        mainFrame.setResizable(false);
+        mainFrame.setResizable(true);
         mainFrame.setDefaultCloseOperation(3);
-        
+        textureFrame.setVisible(true);
+        textureFrame.setResizable(true);
+        textureFrame.setDefaultCloseOperation(3);
+        textureFrame.pack();
+        mainFrame.pack();
         printLvl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,6 +63,7 @@ public class MapMaker {
                     for (int i = 0; i < 20; i++) {
             
                         for (int j = 0; j < 11; j++) {
+                            System.out.println(i+" "+j+" "+ mainPanel.getButtonText(j, i));
                             if(mainPanel.getButtonText(i, j) == ""){
                                 bufferedWriter.write("empty");
                             }

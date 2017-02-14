@@ -17,18 +17,14 @@ import javax.swing.*;
 public class MainPanel extends JPanel{
     
     JButton[][] mainButton = new JButton[20][11];
-    int IndiceI = 0;
-    int IndiceJ = 0;
     
     public MainPanel(TexturePanel textPanel){
         
         this.setLayout(new GridLayout(11,20));
         
         for (int i = 0; i < 20; i++) {
-            IndiceI = i;
             
             for (int j = 0; j < 11; j++) {
-                IndiceJ = j;
                 
                 mainButton[i][j]=new JButton();
                 mainButton[i][j].setPreferredSize(new Dimension(64,64));
