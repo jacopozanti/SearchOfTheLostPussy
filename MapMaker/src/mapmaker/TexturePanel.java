@@ -24,13 +24,15 @@ public class TexturePanel extends JPanel{
         this.setSize(new Dimension(800,70));
         this.setLayout(new GridLayout(10,2));
         
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 19; i++) {
             
             textButton[i] = new JButton("Text" + (i + 1));
             textButton[i].setPreferredSize(new Dimension(80,64));
             
             this.add(textButton[i]);                    
         }
+        
+        this.add(textButton[19] = new JButton("Cancel"));
         
         textButton[0].addActionListener(new ActionListener() {
                 @Override
@@ -168,7 +170,7 @@ public class TexturePanel extends JPanel{
         textButton[19].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Selected = textButton[19].getText();
+                    Selected = "";
                 }
             });
         

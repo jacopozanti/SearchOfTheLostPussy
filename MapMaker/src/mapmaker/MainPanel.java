@@ -22,24 +22,24 @@ public class MainPanel extends JPanel{
         
         this.setLayout(new GridLayout(11,20));
         
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 11; i++) {
             
-            for (int j = 0; j < 11; j++) {
+            for (int j = 0; j < 20; j++) {
                 
-                mainButton[i][j]=new JButton();
-                mainButton[i][j].setPreferredSize(new Dimension(64,64));
-                mainButton[i][j].setMargin(new Insets(0, 0, 0, 0));
-                mainButton[i][j].setFocusPainted(false);
+                mainButton[j][i]=new JButton(""+j +"/"+ i);
+                mainButton[j][i].setPreferredSize(new Dimension(64,64));
+                mainButton[j][i].setMargin(new Insets(0, 0, 0, 0));
+                mainButton[j][i].setFocusPainted(false);
                 
-                this.add(mainButton[i][j]);
+                this.add(mainButton[j][i]);
                 
-                mainButton[i][j].addActionListener(new ActionListener() {
+                mainButton[j][i].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         
+                        
                         JButton btn = (JButton)e.getSource();
                         btn.setText(textPanel.getSelected());
-                        
                     }
                 });
             }
@@ -48,8 +48,8 @@ public class MainPanel extends JPanel{
         
     }
     
-    public String getButtonText(int i, int j){
-        return mainButton[i][j].getText();
+    public String getButtonText(int j, int i){
+        return mainButton[j][i].getText();
     }
     
 }
