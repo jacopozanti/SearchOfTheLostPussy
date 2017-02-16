@@ -67,15 +67,15 @@ public class MapMaker {
                     BufferedWriter bufferedWriter;
                     bufferedWriter = new BufferedWriter(fileWriter);
                     
-                    for (int i = 0; i < 20; i++) {
+                    for (int i = 0; i < 11; i++) {
             
-                        for (int j = 0; j < 11; j++) {
-                            System.out.println(i+" "+j+" "+ mainPanel.getButtonText(j, i));
-                            if(mainPanel.getButtonText(i, j) == ""){
+                        for (int j = 0; j < 20; j++) {
+                            
+                            if(mainPanel.getButtonText(j, i) == ""){
                                 bufferedWriter.write("empty");
                             }
                             else{
-                                bufferedWriter.write(mainPanel.getButtonText(i, j));
+                                bufferedWriter.write(mainPanel.getButtonText(j, i));
                             }
                             bufferedWriter.write(" ");
                         }

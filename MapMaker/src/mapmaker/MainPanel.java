@@ -22,18 +22,18 @@ public class MainPanel extends JPanel{
         
         this.setLayout(new GridLayout(11,20));
         
-        for (int i = 0; i < 11; i++) {
+        for (int j = 0; j < 11; j++) {
             
-            for (int j = 0; j < 20; j++) {
+            for (int i = 0; i < 20; i++) {
                 
-                mainButton[j][i]=new JButton(""+j +"/"+ i);
-                mainButton[j][i].setPreferredSize(new Dimension(64,64));
-                mainButton[j][i].setMargin(new Insets(0, 0, 0, 0));
-                mainButton[j][i].setFocusPainted(false);
+                mainButton[i][j]=new JButton();
+                mainButton[i][j].setPreferredSize(new Dimension(64,64));
+                mainButton[i][j].setMargin(new Insets(0, 0, 0, 0));
+                mainButton[i][j].setFocusPainted(false);
                 
-                this.add(mainButton[j][i]);
+                this.add(mainButton[i][j]);
                 
-                mainButton[j][i].addActionListener(new ActionListener() {
+                mainButton[i][j].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         
@@ -48,8 +48,8 @@ public class MainPanel extends JPanel{
         
     }
     
-    public String getButtonText(int j, int i){
-        return mainButton[j][i].getText();
+    public String getButtonText(int i, int j){
+        return mainButton[i][j].getText();
     }
     
 }
