@@ -3,20 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
-
-import View.MainCharacter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+package Component;
 
 /**
  *
- * @author daddi
+ * @author j.zanti
  */
-public class Wasd extends Thread {
+public class LevelInstantiator {
     
-    public void run()
-    {
-
-    }
+    
+    
 }

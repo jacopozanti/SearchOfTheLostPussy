@@ -8,6 +8,7 @@ package searchofthelostpussy;
 import Component.GameObject;
 import Model.ElementInGame;
 import View.MainCharacter;
+import View.Wall;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JPanel;
@@ -29,8 +30,16 @@ public class GameWindow extends JPanel {
     {
 
             super.paintComponent(g);
-            for (Object object : ElementInGame.ElementInGame) {
-                g.drawRect(((GameObject)object).posizione.x, ((GameObject)object).posizione.y, ((GameObject)object).hitBox.height, ((GameObject)object).hitBox.width);
+            for (Object object : ElementInGame.ElementInGame) 
+            {
+                GameObject gameObject = ((GameObject)object);
+                g.drawRect(gameObject.posizione.x, gameObject.posizione.y, gameObject.hitBox.height, gameObject.hitBox.width);
+            }
+            for (Object object : ElementInGame.WallInGame)
+            {
+                Wall wall = ((Wall)object);
+                g.drawRect(wall.posizione.x * wall.width, wall.posizione.y, wall.height , wall.width);
+                
             }
             
     }
