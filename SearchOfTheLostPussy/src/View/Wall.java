@@ -6,6 +6,7 @@
 package View;
 
 import Component.GameObject;
+import Model.ElementInGame;
 import java.awt.Point;
 import java.awt.Rectangle;
 
@@ -23,7 +24,7 @@ public class Wall extends GameObject {
         this.hitBox = new Rectangle(height, width);
         this.posizione = new Point(x, y);
         this.animable = false;
-
+        ElementInGame.WallInGame.add(this);
     }
     
     

@@ -13,11 +13,10 @@ import java.util.logging.Logger;
  *
  * @author daddi
  */
-public class Wasd extends GameObject {
+public class Wasd extends Thread {
     
     public void run()
     {
-        isWall = true;
-        hitBox = new Rectangle(64,64);
+
     }
 }
