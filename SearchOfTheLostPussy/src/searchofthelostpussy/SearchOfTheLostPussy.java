@@ -5,6 +5,7 @@
  */
 package searchofthelostpussy;
 
+import View.Wall;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -25,11 +26,11 @@ public class SearchOfTheLostPussy {
         gameFrame.pack();
         gameFrame.setVisible(true);
         gameFrame.setDefaultCloseOperation(3);
+
         while(true)
         {
             gameWindow.repaint();
         }
-        
         
     }
     
