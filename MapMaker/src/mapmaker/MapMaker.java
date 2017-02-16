@@ -24,9 +24,11 @@ public class MapMaker {
     public static void main(String[] args) throws IOException {
         
         JFrame mainFrame = new JFrame("MapMaker");
+        JFrame textureFrame = new JFrame();
         
         TexturePanel texturePanel = new TexturePanel();
         MainPanel mainPanel = new MainPanel(texturePanel);
+        
         JTextField fileName = new JTextField();
         JButton printLvl = new JButton("Crea Livello!");
         
@@ -34,17 +36,26 @@ public class MapMaker {
         printLvl.setPreferredSize(new Dimension(110,30));
         
         mainFrame.setLayout(new FlowLayout());
+        textureFrame.setLayout(new FlowLayout());
         
         mainFrame.add(mainPanel);
-        mainFrame.add(texturePanel);
-        mainFrame.add(fileName);
-        mainFrame.add(printLvl);
+        textureFrame.add(texturePanel);
+        textureFrame.add(fileName);
+        textureFrame.add(printLvl);
         
         mainFrame.setSize(new Dimension(1480,805));
         
         mainFrame.setVisible(true);
-        mainFrame.setResizable(false);
+        textureFrame.setVisible(true);
+        
+        mainFrame.setResizable(true);
+        textureFrame.setResizable(true);
+        
         mainFrame.setDefaultCloseOperation(3);
+        textureFrame.setDefaultCloseOperation(3);
+        
+        mainFrame.pack();
+        textureFrame.pack();
         
         printLvl.addActionListener(new ActionListener() {
             @Override
@@ -56,14 +67,15 @@ public class MapMaker {
                     BufferedWriter bufferedWriter;
                     bufferedWriter = new BufferedWriter(fileWriter);
                     
-                    for (int i = 0; i < 20; i++) {
+                    for (int i = 0; i < 11; i++) {
             
-                        for (int j = 0; j < 11; j++) {
-                            if(mainPanel.getButtonText(i, j) == ""){
+                        for (int j = 0; j < 20; j++) {
+                            
+                            if(mainPanel.getButtonText(j, i) == ""){
                                 bufferedWriter.write("empty");
                             }
                             else{
-                                bufferedWriter.write(mainPanel.getButtonText(i, j));
+                                bufferedWriter.write(mainPanel.getButtonText(j, i));
                             }
                             bufferedWriter.write(" ");
                         }
