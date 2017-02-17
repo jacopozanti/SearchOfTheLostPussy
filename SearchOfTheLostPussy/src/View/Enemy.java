@@ -26,6 +26,7 @@ public class Enemy extends GameObject{
         canMoveSX = true;
         canMoveUP = true;
         canMoveDW = true;
+        
 
     }
     
