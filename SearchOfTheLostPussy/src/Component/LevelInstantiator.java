@@ -5,6 +5,7 @@
  */
 package Component;
 
+import View.*;
 import java.io.*;
 
 /**
@@ -13,14 +14,35 @@ import java.io.*;
  */
 public class LevelInstantiator {
     
-    public LevelInstantiator(){
+    public LevelInstantiator(String fileName){
         
-        try (BufferedReader br = new BufferedReader(new FileReader("Prova.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
         String sCurrentLine;
+        
+        int y = 0;
+        int count = 0;
 
             while ((sCurrentLine = br.readLine()) != null) {
-                    System.out.println(sCurrentLine);
+                int x = 0;
+                for (String word : sCurrentLine.split(" ") ) {
+                    
+
+                        
+                        if(word.equals("empty")){
+                            x++;
+                            count++;
+                        }
+                        
+                        if(word.equals("Text1")){
+                            new Wall(x,y);
+                            x++;
+                            count++;
+                        }
+                }
+                y++;
             }
+            
+            
 
         } catch (IOException e) {
             e.printStackTrace();

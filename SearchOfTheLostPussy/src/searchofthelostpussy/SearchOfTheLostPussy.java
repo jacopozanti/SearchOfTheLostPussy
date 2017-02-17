@@ -26,9 +26,10 @@ public class SearchOfTheLostPussy {
         gameFrame.add(gameWindow);
         gameFrame.pack();
         gameFrame.setVisible(true);
+        gameFrame.setResizable(false);
         gameFrame.setDefaultCloseOperation(3);
 
-        new LevelInstantiator();
+        new LevelInstantiator("Prova.txt");
         
         while(true)
         {

@@ -17,6 +17,6 @@ public class Wasd extends Thread {
     
     public void run()
     {
-
+        //MainCharacter.instance
     }
 }
