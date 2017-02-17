@@ -26,11 +26,21 @@ public class CollisionDetectorWall extends Thread {
                     GameObject gameObject = ((GameObject)objectIn);
                     if(gameObject.hitBox.intersects(wall.hitBox))
                     {
-                        //riscrivere intersecs nella hitbox class in modo da trovare la direzione
+                        if(gameObject.posizione.x > wall.posizione.x)
+                        {
+                            gameObject.canMoveSX = false;
+                        }
+                        else
+                        {
+                            gameObject.canMoveDX = false;
+                        }
                     }
+                    gameObject.canMoveDX = true;
+                    gameObject.canMoveSX = true;
                 }
             }
         }
     }
+
     
 }

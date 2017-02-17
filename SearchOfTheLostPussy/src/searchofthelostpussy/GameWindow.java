@@ -38,7 +38,7 @@ public class GameWindow extends JPanel {
             for (Object object : ElementInGame.WallInGame)
             {
                 Wall wall = ((Wall)object);
-                g.drawRect(wall.posizione.x * wall.width, wall.posizione.y * wall.height, wall.height , wall.width);           
+                g.drawRect(wall.posizione.x, wall.posizione.y, wall.height , wall.width);           
             }
             
     }
