@@ -5,6 +5,7 @@
  */
 package searchofthelostpussy;
 
+import Component.LevelInstantiator;
 import View.Wall;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,8 @@ public class SearchOfTheLostPussy {
         gameFrame.setVisible(true);
         gameFrame.setDefaultCloseOperation(3);
 
+        new LevelInstantiator();
+        
         while(true)
         {
             gameWindow.repaint();

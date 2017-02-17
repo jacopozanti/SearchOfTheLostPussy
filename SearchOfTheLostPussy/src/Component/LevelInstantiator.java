@@ -5,12 +5,28 @@
  */
 package Component;
 
+import java.io.*;
+
 /**
  *
  * @author j.zanti
  */
 public class LevelInstantiator {
     
+    public LevelInstantiator(){
+        
+        try (BufferedReader br = new BufferedReader(new FileReader("Prova.txt"))) {
+        String sCurrentLine;
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                    System.out.println(sCurrentLine);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     
+        }
+
     
 }
