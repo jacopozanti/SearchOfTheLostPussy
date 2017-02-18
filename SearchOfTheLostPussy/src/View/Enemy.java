@@ -21,7 +21,7 @@ public class Enemy extends GameObject{
     public Enemy(int x, int y)
     {
         hitBox = new Rectangle(50,50);
-        posizione = new Point(x,y);
+        //posizione = new Point(x,y);
         animable = true;
         height = 50;
         width = 50;
