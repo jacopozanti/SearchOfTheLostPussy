@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/j.zanti/Desktop/SearchOfTheLostPussy/SearchOfTheLostPussy/src/View/MainCharacter.java</file>
             <file>file:/C:/Users/j.zanti/Desktop/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Model/ElementInGame.java</file>
             <file>file:/C:/Users/j.zanti/Desktop/SearchOfTheLostPussy/SearchOfTheLostPussy/src/View/Enemy.java</file>
@@ -11,6 +12,10 @@
             <file>file:/C:/Users/j.zanti/Desktop/SearchOfTheLostPussy/SearchOfTheLostPussy/src/searchofthelostpussy/GameWindow.java</file>
             <file>file:/C:/Users/j.zanti/Desktop/SearchOfTheLostPussy/SearchOfTheLostPussy/src/searchofthelostpussy/SearchOfTheLostPussy.java</file>
             <file>file:/C:/Users/j.zanti/Desktop/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/Gravity.java</file>
+=======
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/searchofthelostpussy/SearchOfTheLostPussy.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/Wasd.java</file>
+>>>>>>> 1600459088b12fc4b3ffec8162d56e80b62f2946
         </group>
     </open-files>
 </project-private>
