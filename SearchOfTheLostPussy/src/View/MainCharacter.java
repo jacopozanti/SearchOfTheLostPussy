@@ -50,7 +50,7 @@ public class MainCharacter extends GameObject {
     @Override
     public void MoveUp(int movement) {
         if(this.canMoveUP)
-            this.posizione.y += movement;
+            this.posizione.y -= movement;
         this.direction = Direction.UP;
 
     }
@@ -58,7 +58,7 @@ public class MainCharacter extends GameObject {
     @Override
     public void MoveDown(int movement) {
         if(this.canMoveDW)
-            this.posizione.y -= movement;
+            this.posizione.y += movement;
         this.direction = Direction.DOWN;
 
     }

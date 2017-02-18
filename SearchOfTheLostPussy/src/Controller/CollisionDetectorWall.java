@@ -34,9 +34,20 @@ public class CollisionDetectorWall extends Thread {
                         {
                             gameObject.canMoveDX = false;
                         }
+                        if(gameObject.hitBox.y < wall.hitBox.y + wall.hitBox.height)
+                        {
+                            gameObject.canMoveUP = false;
+                        }
+                        if(gameObject.hitBox.y + gameObject.hitBox.height < wall.hitBox.y)
+                        {
+                            gameObject.canMoveUP = false;                           
+                        }
                     }
                     gameObject.canMoveDX = true;
                     gameObject.canMoveSX = true;
+                    gameObject.canMoveUP = true;
+                    gameObject.canMoveDW = true;                    
+                   
                 }
             }
         }

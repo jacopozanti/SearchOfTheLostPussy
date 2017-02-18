@@ -64,7 +64,7 @@ public class Enemy extends GameObject{
     @Override
     public void MoveDown(int movement) {
         if(this.canMoveDW)
-            this.posizione.y -= movement;
+            this.posizione.y += movement;
         this.direction = Direction.DOWN;
     }
     
