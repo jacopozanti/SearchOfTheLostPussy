@@ -22,6 +22,7 @@ public abstract class GameObject {
         UP,
         DOWN
     };
+    public boolean isEnemy = false;
     public boolean isWall = false;
     public Rectangle hitBox = null;
     public Point posizione = null;
@@ -38,7 +39,7 @@ public abstract class GameObject {
     public boolean canMoveDW = false;
     public Direction direction = Direction.RIGHT;
     public Thread movement = null;
-    public Thread collision = null;
+    //public Thread collision = null;
     public int speed = 0;
     public int life = 0;
     

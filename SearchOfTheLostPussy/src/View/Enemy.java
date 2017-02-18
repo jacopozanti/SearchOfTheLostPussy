@@ -6,6 +6,9 @@
 package View;
 
 import Component.GameObject;
+import Controller.AI;
+import Model.ElementInGame;
+import java.awt.Point;
 import java.awt.Rectangle;
 
 /**
@@ -26,19 +29,31 @@ public class Enemy extends GameObject{
         canMoveSX = true;
         canMoveUP = true;
         canMoveDW = true;
-        
-
+        direction = Direction.LEFT;
+        movement = AI.istance;
+        speed = 2;
+        life = 10;
+        if(AI.istance == null)
+        {
+            new AI();
+        }
+        ElementInGame.ElementInGame.add(this);
     }
     
     
     @Override
     public void MoveLeft(int movement) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        if(this.canMoveSX)
+            this.posizione.x -= movement;
+        this.direction = Direction.LEFT;
+        }
 
     @Override
     public void MoveRight(int movement) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.canMoveDX)
+            this.posizione.x += movement;
+        this.direction = Direction.RIGHT;
+
     }
 
     @Override
@@ -48,7 +63,9 @@ public class Enemy extends GameObject{
 
     @Override
     public void MoveDown(int movement) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.canMoveDW)
+            this.posizione.y -= movement;
+        this.direction = Direction.DOWN;
     }
     
     

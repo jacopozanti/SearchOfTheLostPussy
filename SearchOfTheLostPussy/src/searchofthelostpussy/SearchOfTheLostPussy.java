@@ -6,6 +6,7 @@
 package searchofthelostpussy;
 
 import Component.LevelInstantiator;
+import Controller.Gravity;
 import View.Wall;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +31,7 @@ public class SearchOfTheLostPussy {
         gameFrame.setDefaultCloseOperation(3);
 
         new LevelInstantiator("Prova.txt");
-        
+        new Gravity().start();
         while(true)
         {
             gameWindow.repaint();
