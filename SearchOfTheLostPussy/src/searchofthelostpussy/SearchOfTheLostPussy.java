@@ -6,11 +6,8 @@
 package searchofthelostpussy;
 
 import Component.LevelInstantiator;
-<<<<<<< HEAD
 import Controller.Gravity;
-=======
 import Controller.Wasd;
->>>>>>> 6f511d49846d5953e24ed851532fb78964fe9689
 import View.Wall;
 import java.util.logging.Level;
 import java.util.logging.Logger;
