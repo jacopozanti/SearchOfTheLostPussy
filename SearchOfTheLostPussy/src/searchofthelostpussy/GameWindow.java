@@ -19,13 +19,13 @@ import javax.swing.JPanel;
  */
 public class GameWindow extends JPanel {
     MainCharacter a;
-    GameWindow instance = null;
+    public static GameWindow instance = null;
     public GameWindow()
     {
         this.setPreferredSize(new Dimension(1280,720));
-        a = new MainCharacter();
         if(instance == null)
             instance = this;
+        a = new MainCharacter();
     }
     @Override
     public void paintComponent(Graphics g)

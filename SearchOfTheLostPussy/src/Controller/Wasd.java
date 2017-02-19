@@ -5,7 +5,11 @@
  */
 package Controller;
 
+import View.*;
 import java.awt.event.*;
+import java.util.logging.*;
+import searchofthelostpussy.*;
+
 
 
 /**
@@ -13,28 +17,59 @@ import java.awt.event.*;
  * @author daddi
  */
 public class Wasd extends Thread implements KeyListener{
-    public Wasd()
-    {
-        
+    
+    public Wasd() {
+        GameWindow.instance.addKeyListener(this);
+        GameWindow.instance.setFocusable(true);
     }
     
-    public void run()
-    {
-        
+    @Override
+    public void run() {
+
     }
 
     @Override
     public void keyTyped(KeyEvent ke) {
-        int key = ke.getKeyCode();
-
-        if (key == KeyEvent.VK_A) {
-            System.out.println("A");
-        }
+        
     }
 
     @Override
     public void keyPressed(KeyEvent ke) {
+        if (KeyEvent.VK_A == ke.getKeyCode()) {
+            MainCharacter.instance.MoveLeft(3);
+            try {
+                sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
+        if (KeyEvent.VK_S == ke.getKeyCode()) {
+            MainCharacter.instance.MoveDown(3);
+            try {
+                sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if (KeyEvent.VK_D == ke.getKeyCode()) {
+            MainCharacter.instance.MoveRight(3);
+            try {
+                sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if (KeyEvent.VK_W == ke.getKeyCode()) {
+            MainCharacter.instance.MoveUp(3);
+            try {
+                sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     @Override
