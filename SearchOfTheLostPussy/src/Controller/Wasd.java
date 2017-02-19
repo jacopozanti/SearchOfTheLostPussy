@@ -35,40 +35,22 @@ public class Wasd extends Thread implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent ke) {
+        int Where = 0;
+        
         if (KeyEvent.VK_A == ke.getKeyCode()) {
-            MainCharacter.instance.MoveLeft(3);
-            try {
-                sleep(50);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            MainCharacter.instance.MoveLeft(5);
         }
         
         if (KeyEvent.VK_S == ke.getKeyCode()) {
-            MainCharacter.instance.MoveDown(3);
-            try {
-                sleep(50);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            MainCharacter.instance.MoveDown(5);
         }
         
         if (KeyEvent.VK_D == ke.getKeyCode()) {
-            MainCharacter.instance.MoveRight(3);
-            try {
-                sleep(50);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            MainCharacter.instance.MoveRight(5);
         }
         
         if (KeyEvent.VK_W == ke.getKeyCode()) {
-            MainCharacter.instance.MoveUp(3);
-            try {
-                sleep(50);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            MainCharacter.instance.MoveUp(5);
         }
     }
 
