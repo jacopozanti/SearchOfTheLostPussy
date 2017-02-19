@@ -37,19 +37,19 @@ public class Wasd extends Thread implements KeyListener{
     public void keyPressed(KeyEvent ke) {
         int Where = 0;
         
-        if (KeyEvent.VK_A == ke.getKeyCode()) {
+        if (KeyEvent.VK_A == ke.getKeyCode() || KeyEvent.VK_LEFT == ke.getKeyCode()) {
             MainCharacter.instance.MoveLeft(5);
         }
         
-        if (KeyEvent.VK_S == ke.getKeyCode()) {
+        if (KeyEvent.VK_S == ke.getKeyCode() || KeyEvent.VK_DOWN == ke.getKeyCode()) {
             MainCharacter.instance.MoveDown(5);
         }
         
-        if (KeyEvent.VK_D == ke.getKeyCode()) {
+        if (KeyEvent.VK_D == ke.getKeyCode() || KeyEvent.VK_RIGHT == ke.getKeyCode()) {
             MainCharacter.instance.MoveRight(5);
         }
         
-        if (KeyEvent.VK_W == ke.getKeyCode()) {
+        if (KeyEvent.VK_W == ke.getKeyCode() || KeyEvent.VK_UP == ke.getKeyCode()) {
             MainCharacter.instance.MoveUp(5);
         }
     }
