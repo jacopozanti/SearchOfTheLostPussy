@@ -8,6 +8,7 @@ package searchofthelostpussy;
 import Component.GameObject;
 import Model.ElementInGame;
 import View.MainCharacter;
+import View.Projectile;
 import View.Wall;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -41,6 +42,11 @@ public class GameWindow extends JPanel {
             {
                 Wall wall = ((Wall)object);
                 g.drawRect(wall.posizione.x, wall.posizione.y, wall.height , wall.width);           
+            }
+            for (Object object : ElementInGame.ProjectileInGame)
+            {
+                Projectile projectile = ((Projectile)object);
+                g.drawRect(projectile.posizione.x, projectile.posizione.y, projectile.height , projectile.width);           
             }
             
     }

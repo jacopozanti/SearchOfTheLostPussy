@@ -42,13 +42,13 @@ public abstract class GameObject {
     public Thread collision = null;
     public int speed = 0;
     public int life = 0;
-    
+    public int dmg;
     //MOVIMENTI
     public abstract void MoveLeft(int movement);
     public abstract void MoveRight(int movement);
     public abstract void MoveUp(int movement);
     public abstract void MoveDown(int movement);
     public abstract void RepositionHitBox();
-        
+    public abstract void TakeDamage(int dmg);
     
 }

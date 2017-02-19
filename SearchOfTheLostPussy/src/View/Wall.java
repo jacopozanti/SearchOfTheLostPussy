@@ -54,5 +54,10 @@ public class Wall extends GameObject {
         hitBox.x = posizione.x;
         hitBox.y = posizione.y;
     }
+
+    @Override
+    public void TakeDamage(int dmg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

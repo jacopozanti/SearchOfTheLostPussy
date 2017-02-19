@@ -17,6 +17,7 @@ import java.awt.Rectangle;
  * @author daddi
  */
 public class MainCharacter extends GameObject {
+    public boolean canShoot;
     public static MainCharacter instance = null; 
     public MainCharacter()
     {
@@ -32,8 +33,9 @@ public class MainCharacter extends GameObject {
         speed = 1;
         movement = new Wasd();
         movement.start();
-
-
+        canShoot = true;
+        width = 64;
+        height = 64;
 
     }
 
@@ -56,6 +58,8 @@ public class MainCharacter extends GameObject {
             RepositionHitBox();
         }
         this.direction = Direction.LEFT;
+        Shoot();
+
         }
 
     @Override
@@ -67,6 +71,7 @@ public class MainCharacter extends GameObject {
             RepositionHitBox();
         }
         this.direction = Direction.RIGHT;
+        Shoot();
 
     }
 
@@ -84,6 +89,25 @@ public class MainCharacter extends GameObject {
     public void RepositionHitBox() {
         hitBox.x = posizione.x;
         hitBox.y = posizione.y;
+    }
+
+    public void Shoot()
+    {
+        System.out.println(canShoot);
+        if(canShoot)
+        {
+            new Projectile(this.posizione.x + this.width/2, this.posizione.y + this.height/2, this.direction);
+            canShoot = false;
+        }
+    }
+    
+    @Override
+    public void TakeDamage(int dmg) {
+        life -= dmg;
+        if(life < 0)
+        {
+            System.out.println("death");
+        }
     }
     
 }

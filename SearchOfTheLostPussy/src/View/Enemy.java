@@ -41,6 +41,7 @@ public class Enemy extends GameObject{
             new AI().start();
         }
         ElementInGame.ElementInGame.add(this);
+        dmg = 5;
     }
     
     
@@ -85,6 +86,15 @@ public class Enemy extends GameObject{
     public void RepositionHitBox() {
         hitBox.x = posizione.x;
         hitBox.y = posizione.y;
+    }
+
+    @Override
+    public void TakeDamage(int dmg) {
+        life -= dmg;
+        if(life < 0)
+        {
+            ElementInGame.ElementInGame.remove(this);
+        }
     }
     
     

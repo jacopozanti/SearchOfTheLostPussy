@@ -14,4 +14,5 @@ import java.util.LinkedList;
 public class ElementInGame {
     public static LinkedList ElementInGame = new LinkedList();
     public static LinkedList WallInGame = new LinkedList();
+    public static LinkedList ProjectileInGame = new LinkedList();
 }

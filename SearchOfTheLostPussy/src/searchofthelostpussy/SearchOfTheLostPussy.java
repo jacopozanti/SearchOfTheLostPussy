@@ -6,8 +6,12 @@
 package searchofthelostpussy;
 
 import Component.LevelInstantiator;
+import Controller.CanShooter;
+import Controller.CollisionDetectorEnemy;
+import Controller.CollisionDetectorProjectile;
 import Controller.CollisionDetectorWall;
 import Controller.Gravity;
+import Controller.ProjectileMovement;
 import Controller.Wasd;
 import View.Enemy;
 import View.Wall;
@@ -36,6 +40,10 @@ public class SearchOfTheLostPussy {
         new LevelInstantiator("Prova.txt");
         new Gravity().start();
         new CollisionDetectorWall().start();
+        new CollisionDetectorEnemy().start();
+        new CollisionDetectorProjectile().start();
+        new ProjectileMovement().start();
+        new CanShooter().start();
         while(true)
         {
             gameWindow.repaint();
