@@ -93,7 +93,6 @@ public class MainCharacter extends GameObject {
 
     public void Shoot()
     {
-        System.out.println(canShoot);
         if(canShoot)
         {
             new Projectile(this.posizione.x + this.width/2, this.posizione.y + this.height/2, this.direction);
