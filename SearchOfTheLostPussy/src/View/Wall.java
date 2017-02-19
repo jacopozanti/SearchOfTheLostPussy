@@ -24,6 +24,7 @@ public class Wall extends GameObject {
         this.hitBox = new Rectangle(height, width);
         this.posizione = new Point(x, y);
         this.animable = false;
+        RepositionHitBox();
         ElementInGame.WallInGame.add(this);
     }
     
@@ -48,12 +49,10 @@ public class Wall extends GameObject {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void height(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void width(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public void RepositionHitBox() {
+        hitBox.x = posizione.x;
+        hitBox.y = posizione.y;
     }
     
 }

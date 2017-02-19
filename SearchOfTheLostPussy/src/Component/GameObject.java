@@ -39,7 +39,7 @@ public abstract class GameObject {
     public boolean canMoveDW = false;
     public Direction direction = Direction.RIGHT;
     public Thread movement = null;
-    //public Thread collision = null;
+    public Thread collision = null;
     public int speed = 0;
     public int life = 0;
     
@@ -48,7 +48,7 @@ public abstract class GameObject {
     public abstract void MoveRight(int movement);
     public abstract void MoveUp(int movement);
     public abstract void MoveDown(int movement);
-    
+    public abstract void RepositionHitBox();
         
     
 }

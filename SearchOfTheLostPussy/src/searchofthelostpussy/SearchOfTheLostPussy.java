@@ -6,8 +6,10 @@
 package searchofthelostpussy;
 
 import Component.LevelInstantiator;
+import Controller.CollisionDetectorWall;
 import Controller.Gravity;
 import Controller.Wasd;
+import View.Enemy;
 import View.Wall;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,9 +32,10 @@ public class SearchOfTheLostPussy {
         gameFrame.setVisible(true);
         gameFrame.setResizable(false);
         gameFrame.setDefaultCloseOperation(3);
-
+        new Enemy(90,30);
         new LevelInstantiator("Prova.txt");
         new Gravity().start();
+        new CollisionDetectorWall().start();
         while(true)
         {
             gameWindow.repaint();

@@ -7,6 +7,7 @@ package View;
 
 import Component.GameObject;
 import Controller.AI;
+import Controller.CollisionDetectorWall;
 import Model.ElementInGame;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -20,8 +21,10 @@ public class Enemy extends GameObject{
     
     public Enemy(int x, int y)
     {
+        isEnemy = true;
         hitBox = new Rectangle(50,50);
-        //posizione = new Point(x,y);
+        posizione = new Point(x,y);
+        RepositionHitBox();        
         animable = true;
         height = 50;
         width = 50;
@@ -35,7 +38,7 @@ public class Enemy extends GameObject{
         life = 10;
         if(AI.istance == null)
         {
-            new AI();
+            new AI().start();
         }
         ElementInGame.ElementInGame.add(this);
     }
@@ -44,14 +47,21 @@ public class Enemy extends GameObject{
     @Override
     public void MoveLeft(int movement) {
         if(this.canMoveSX)
+        {
             this.posizione.x -= movement;
+            RepositionHitBox();
+        }
         this.direction = Direction.LEFT;
         }
 
     @Override
     public void MoveRight(int movement) {
+
         if(this.canMoveDX)
+        {
             this.posizione.x += movement;
+            RepositionHitBox();
+        }
         this.direction = Direction.RIGHT;
 
     }
@@ -64,8 +74,17 @@ public class Enemy extends GameObject{
     @Override
     public void MoveDown(int movement) {
         if(this.canMoveDW)
+        {
             this.posizione.y += movement;
+            RepositionHitBox();
+        }
         this.direction = Direction.DOWN;
+    }
+
+    @Override
+    public void RepositionHitBox() {
+        hitBox.x = posizione.x;
+        hitBox.y = posizione.y;
     }
     
     

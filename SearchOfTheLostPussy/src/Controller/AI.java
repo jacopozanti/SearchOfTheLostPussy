@@ -7,6 +7,8 @@ package Controller;
 
 import Component.GameObject;
 import Model.ElementInGame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,11 +25,19 @@ public class AI extends Thread{
     @Override
     public void run()
     {
-        for (Object object : ElementInGame.ElementInGame) {
-            GameObject gameObject = (GameObject)object;
-            if(gameObject.isEnemy)
-            {
-                gameObject.MoveLeft(10);
+        while(true)
+        {
+            for (Object object : ElementInGame.ElementInGame) {
+                GameObject gameObject = (GameObject)object;
+                if(gameObject.isEnemy)
+                {
+                    gameObject.MoveRight(1);
+                }
+            }
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
