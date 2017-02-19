@@ -31,7 +31,10 @@ public class AI extends Thread{
                 GameObject gameObject = (GameObject)object;
                 if(gameObject.isEnemy)
                 {
-                    gameObject.MoveRight(1);
+                    if(gameObject.canMoveDX)
+                        gameObject.MoveRight(1);
+                    else
+                        gameObject.MoveLeft(1);
                 }
             }
             try {
