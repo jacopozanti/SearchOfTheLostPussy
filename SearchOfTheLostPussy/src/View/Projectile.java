@@ -31,9 +31,8 @@ public class Projectile extends GameObject {
 
     @Override
     public void MoveUp(int movement) {
-        this.posizione.y += movement;
+        this.posizione.y -= movement;
         RepositionHitBox();
-        this.direction = Direction.DOWN;
 
     }
 
@@ -41,22 +40,20 @@ public class Projectile extends GameObject {
     public void MoveLeft(int movement) {
         this.posizione.x -= movement;
         RepositionHitBox();
-        this.direction = Direction.LEFT;
         }
 
     @Override
     public void MoveRight(int movement) {
         this.posizione.x += movement;
         RepositionHitBox();
-        this.direction = Direction.RIGHT;
 
     }
 
     @Override
     public void MoveDown(int movement) {
-        this.posizione.y -= movement;
+        
+        this.posizione.y += movement;
         RepositionHitBox();
-        this.direction = Direction.DOWN;
     }
     
     @Override

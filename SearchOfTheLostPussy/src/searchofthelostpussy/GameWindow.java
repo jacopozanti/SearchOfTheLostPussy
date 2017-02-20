@@ -6,6 +6,13 @@
 package searchofthelostpussy;
 
 import Component.GameObject;
+import Component.LevelInstantiator;
+import Controller.CanShooter;
+import Controller.CollisionDetectorEnemy;
+import Controller.CollisionDetectorProjectile;
+import Controller.CollisionDetectorWall;
+import Controller.Gravity;
+import Controller.ProjectileMovement;
 import Model.ElementInGame;
 import View.MainCharacter;
 import View.Projectile;
@@ -23,10 +30,15 @@ public class GameWindow extends JPanel {
     public static GameWindow instance = null;
     public GameWindow()
     {
+        instance = this;
         this.setPreferredSize(new Dimension(1280,720));
-        if(instance == null)
-            instance = this;
-        a = new MainCharacter();
+        new LevelInstantiator("Prova.txt");
+        new Gravity().start();
+        new CollisionDetectorWall().start();
+        new CollisionDetectorEnemy().start();
+        new CollisionDetectorProjectile().start();
+        new ProjectileMovement().start();
+        new CanShooter().start();
     }
     @Override
     public void paintComponent(Graphics g)

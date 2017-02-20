@@ -16,7 +16,6 @@ import java.util.logging.Logger;
  */
 public class AI extends Thread{
     public static AI istance = null;
-    
     public AI()
     {
         istance = this;
@@ -31,10 +30,21 @@ public class AI extends Thread{
                 GameObject gameObject = (GameObject)object;
                 if(gameObject.isEnemy)
                 {
-                    if(gameObject.canMoveDX)
-                        gameObject.MoveRight(1);
+                    if(gameObject.moveRx)
+                    {
+                        if(gameObject.canMoveDX)
+                            gameObject.MoveRight(1);
+                        else
+                            gameObject.moveRx = false;
+                    }
                     else
-                        gameObject.MoveLeft(1);
+                    {
+                        if(gameObject.canMoveSX)
+                            gameObject.MoveLeft(1);
+                        else
+                            gameObject.moveRx = true;  
+                    }
+                         
                 }
             }
             try {

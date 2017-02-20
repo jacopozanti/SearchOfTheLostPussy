@@ -7,6 +7,8 @@ package View;
 
 import Component.*;
 import Controller.CollisionDetectorWall;
+import Controller.Jump;
+import Controller.ShootArrow;
 import Controller.Wasd;
 import Model.ElementInGame;
 import java.awt.Point;
@@ -19,7 +21,8 @@ import java.awt.Rectangle;
 public class MainCharacter extends GameObject {
     public boolean canShoot;
     public static MainCharacter instance = null; 
-    public MainCharacter()
+    public Direction facing = Direction.RIGHT;
+    public MainCharacter(int x, int y)
     {
         canMoveSX = true;
         canMoveDX = true;
@@ -28,7 +31,7 @@ public class MainCharacter extends GameObject {
         instance = this;
         ElementInGame.ElementInGame.add(this);
         hitBox = new Rectangle(64,64);
-        posizione = new Point(20,20);
+        posizione = new Point(x, y);
         animable = true;
         speed = 1;
         movement = new Wasd();
@@ -36,12 +39,14 @@ public class MainCharacter extends GameObject {
         canShoot = true;
         width = 64;
         height = 64;
-
+        jump = new Jump();
+        new ShootArrow().start();
+        facing = Direction.RIGHT;
     }
 
     @Override
     public void MoveUp(int movement) {
-        if(this.canMoveDW)
+        if(this.canMoveUP)
         {
             this.posizione.y -= movement;
             RepositionHitBox();
@@ -58,8 +63,7 @@ public class MainCharacter extends GameObject {
             RepositionHitBox();
         }
         this.direction = Direction.LEFT;
-        Shoot();
-
+        this.facing = Direction.LEFT;
         }
 
     @Override
@@ -71,7 +75,7 @@ public class MainCharacter extends GameObject {
             RepositionHitBox();
         }
         this.direction = Direction.RIGHT;
-        Shoot();
+        this.facing = Direction.RIGHT;
 
     }
 

@@ -48,7 +48,6 @@ public class ProjectileMovement extends Thread{
             }
             catch(Exception ex)
             {
-                System.out.println(ex);
             }
         }
     }

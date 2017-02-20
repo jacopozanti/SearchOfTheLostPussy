@@ -38,6 +38,18 @@ public class LevelInstantiator {
                             x++;
                             count++;
                         }
+                        if(word.equals("Text2"))
+                        {
+                            new Enemy(x*64,y*64);
+                            x++;
+                            count++;
+                        }
+                        if(word.equals("Text3"))
+                        {
+                            new MainCharacter(x*64,y*64);
+                            x++;
+                            count++;
+                        }
                 }
                 y++;
             }

@@ -38,7 +38,6 @@ public class CollisionDetectorProjectile extends Thread{
             }
             catch(Exception ex)
             {
-                System.out.println("collsion" + ex);
             }
         }
     }

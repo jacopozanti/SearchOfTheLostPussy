@@ -28,22 +28,17 @@ public class SearchOfTheLostPussy {
     /**
      * @param args the command line arguments
      */
+    public static JFrame gameFrame;
     public static void main(String[] args) {
-        JFrame gameFrame = new JFrame();
+        gameFrame = new JFrame();
         GameWindow gameWindow = new GameWindow();
         gameFrame.add(gameWindow);
         gameFrame.pack();
         gameFrame.setVisible(true);
         gameFrame.setResizable(false);
         gameFrame.setDefaultCloseOperation(3);
-        new Enemy(90,30);
-        new LevelInstantiator("Prova.txt");
-        new Gravity().start();
-        new CollisionDetectorWall().start();
-        new CollisionDetectorEnemy().start();
-        new CollisionDetectorProjectile().start();
-        new ProjectileMovement().start();
-        new CanShooter().start();
+        //new Enemy(90,30);
+
         while(true)
         {
             gameWindow.repaint();

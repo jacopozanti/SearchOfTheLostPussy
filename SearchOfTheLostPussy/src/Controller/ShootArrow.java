@@ -18,9 +18,9 @@ import searchofthelostpussy.*;
  *
  * @author daddi
  */
-public class Wasd extends Thread implements KeyListener{
+public class ShootArrow extends Thread implements KeyListener{
     
-    public Wasd() {
+    public ShootArrow() {
         GameWindow.instance.addKeyListener(this);
         GameWindow.instance.setFocusable(true);
     }
@@ -37,24 +37,27 @@ public class Wasd extends Thread implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        
-        if (KeyEvent.VK_A == ke.getKeyCode()) {
-            MainCharacter.instance.MoveLeft(5);
+       
+        if(KeyEvent.VK_LEFT == ke.getKeyCode())
+        {
+            MainCharacter.instance.direction = Direction.LEFT;
+            MainCharacter.instance.Shoot();
         }
-        
-        else if (KeyEvent.VK_S == ke.getKeyCode()) {
-            MainCharacter.instance.MoveDown(5);
+        else if(KeyEvent.VK_RIGHT == ke.getKeyCode())
+        {
+            MainCharacter.instance.direction = Direction.RIGHT;
+            MainCharacter.instance.Shoot();
         }
-        
-        else if (KeyEvent.VK_D == ke.getKeyCode()) {
-            MainCharacter.instance.MoveRight(5);
+        else if(KeyEvent.VK_UP== ke.getKeyCode())
+        {
+            MainCharacter.instance.direction = Direction.UP;
+            MainCharacter.instance.Shoot();
         }
-        
-        else if (KeyEvent.VK_W == ke.getKeyCode()) {
-            MainCharacter.instance.jump = new Jump();
-            MainCharacter.instance.jump.start();
+        else if(KeyEvent.VK_DOWN == ke.getKeyCode())
+        {
+            MainCharacter.instance.direction = Direction.DOWN;
+            MainCharacter.instance.Shoot();
         }
-
     }
 
     @Override

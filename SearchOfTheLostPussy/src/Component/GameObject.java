@@ -5,6 +5,7 @@
  */
 package Component;
 
+import Controller.Jump;
 import java.util.List;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -32,7 +33,7 @@ public abstract class GameObject {
     public List<BufferedImage> attacco = null;
     public int height = 0;
     public int width = 0;
-    //public Thread jump = null;
+    public Thread jump;
     public boolean canMoveDX = false;
     public boolean canMoveSX = false;
     public boolean canMoveUP = false;
@@ -43,6 +44,7 @@ public abstract class GameObject {
     public int speed = 0;
     public int life = 0;
     public int dmg;
+    public boolean moveRx = true;
     //MOVIMENTI
     public abstract void MoveLeft(int movement);
     public abstract void MoveRight(int movement);

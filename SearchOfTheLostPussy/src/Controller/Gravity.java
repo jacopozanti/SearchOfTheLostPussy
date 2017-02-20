@@ -21,7 +21,10 @@ public class Gravity extends Thread{
         {
             for (Object object : ElementInGame.ElementInGame) {
                 GameObject gameObject = (GameObject)object;
-                gameObject.MoveDown(1);
+                if(!((Jump)gameObject.jump).jumping)
+                {
+                    gameObject.MoveDown(1);
+                }
             }
             try {
                 Thread.sleep(10);

@@ -8,6 +8,7 @@ package View;
 import Component.GameObject;
 import Controller.AI;
 import Controller.CollisionDetectorWall;
+import Controller.Jump;
 import Model.ElementInGame;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -35,13 +36,14 @@ public class Enemy extends GameObject{
         direction = Direction.LEFT;
         movement = AI.istance;
         speed = 2;
-        life = 10;
+        life = 3;
         if(AI.istance == null)
         {
             new AI().start();
         }
         ElementInGame.ElementInGame.add(this);
         dmg = 5;
+        jump = new Jump();
     }
     
     
