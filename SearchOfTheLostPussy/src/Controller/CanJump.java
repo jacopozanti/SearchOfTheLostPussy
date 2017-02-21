@@ -5,10 +5,25 @@
  */
 package Controller;
 
+import View.MainCharacter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author j.zanti
  */
-public class CanJump {
-    
+public class CanJump extends Thread{
+    public void run()
+    {
+        while(true)
+        {
+            MainCharacter.instance.canJump = true;
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CanShooter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }

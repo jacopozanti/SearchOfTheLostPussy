@@ -51,8 +51,12 @@ public class Wasd extends Thread implements KeyListener{
         }
         
         else if (KeyEvent.VK_W == ke.getKeyCode()) {
-            MainCharacter.instance.jump = new Jump();
-            MainCharacter.instance.jump.start();
+            if(MainCharacter.instance.canJump && !MainCharacter.instance.canMoveDW)
+            {
+                MainCharacter.instance.jump = new Jump();
+                MainCharacter.instance.jump.start();
+                MainCharacter.instance.canJump = false;
+            }
         }
 
     }

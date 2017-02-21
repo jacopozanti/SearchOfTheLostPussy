@@ -38,6 +38,7 @@ public abstract class GameObject {
     public boolean canMoveSX = false;
     public boolean canMoveUP = false;
     public boolean canMoveDW = false;
+    public boolean canJump = false;
     public Direction direction = Direction.RIGHT;
     public Thread movement = null;
     public Thread collision = null;

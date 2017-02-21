@@ -6,6 +6,7 @@
 package View;
 
 import Component.*;
+import Controller.CanJump;
 import Controller.CollisionDetectorWall;
 import Controller.Jump;
 import Controller.ShootArrow;
@@ -42,6 +43,7 @@ public class MainCharacter extends GameObject {
         jump = new Jump();
         new ShootArrow().start();
         facing = Direction.RIGHT;
+        new CanJump().start();
     }
 
     @Override

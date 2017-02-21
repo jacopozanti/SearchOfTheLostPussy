@@ -36,13 +36,13 @@ public class Jump extends Thread{
         for(int i = 0;i<=90;i++)
         {
             //MainCharacter.instance.canMoveDW = false;
-            MainCharacter.instance.MoveUp(1);
+            MainCharacter.instance.MoveUp(2);
             if(direction == Direction.RIGHT)
                 MainCharacter.instance.MoveRight(1);
             else if(direction == Direction.LEFT)
                 MainCharacter.instance.MoveLeft(1);
             try {
-                Thread.sleep(1);
+                Thread.sleep(2);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Jump.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -50,13 +50,12 @@ public class Jump extends Thread{
         jumping = false;
         for(int i = 0;i<=90;i++)
         {
-            
             if(direction == Direction.RIGHT)
                 MainCharacter.instance.MoveRight(1);
             else if(direction == Direction.LEFT)
                 MainCharacter.instance.MoveLeft(1);
             try {
-                Thread.sleep(1);
+                Thread.sleep(2);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Jump.class.getName()).log(Level.SEVERE, null, ex);
             }
