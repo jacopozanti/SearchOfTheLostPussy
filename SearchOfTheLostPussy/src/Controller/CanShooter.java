@@ -20,7 +20,7 @@ public class CanShooter extends Thread{
         {
             MainCharacter.instance.canShoot = true;
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(CanShooter.class.getName()).log(Level.SEVERE, null, ex);
             }
