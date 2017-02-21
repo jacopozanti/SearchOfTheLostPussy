@@ -27,7 +27,7 @@ public class Wasd extends Thread implements KeyListener{
     
     @Override
     public void run() {
-
+        
     }
 
     @Override

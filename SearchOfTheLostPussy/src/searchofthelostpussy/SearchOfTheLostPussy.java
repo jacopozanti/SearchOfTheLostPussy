@@ -38,7 +38,7 @@ public class SearchOfTheLostPussy {
         gameFrame.setResizable(false);
         gameFrame.setDefaultCloseOperation(3);
         //new Enemy(90,30);
-
+        System.setProperty("sun.java2d.opengl", "true");
         while(true)
         {
             gameWindow.repaint();

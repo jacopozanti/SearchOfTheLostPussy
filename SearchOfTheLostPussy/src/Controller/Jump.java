@@ -33,7 +33,7 @@ public class Jump extends Thread{
     public void run()
     {
         jumping = true;
-        for(int i = 0;i<=90;i++)
+        for(int i = 0;i<=100;i++)
         {
             //MainCharacter.instance.canMoveDW = false;
             MainCharacter.instance.MoveUp(2);
@@ -48,7 +48,7 @@ public class Jump extends Thread{
             }
         }
         jumping = false;
-        for(int i = 0;i<=90;i++)
+        for(int i = 0;i<=100;i++)
         {
             if(direction == Direction.RIGHT)
                 MainCharacter.instance.MoveRight(1);

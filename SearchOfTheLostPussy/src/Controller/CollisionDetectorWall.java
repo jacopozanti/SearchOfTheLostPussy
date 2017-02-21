@@ -35,7 +35,7 @@ public class CollisionDetectorWall extends Thread {
 
                             if(gameObject.posizione.x > wall.posizione.x)
                             {
-                                if(wall.hitBox.contains(new Point(gameObject.hitBox.x,gameObject.hitBox.y + gameObject.hitBox.height/2)))
+                                if(wall.hitBox.contains(new Point(gameObject.hitBox.x,gameObject.hitBox.y + gameObject.hitBox.height/5)))
                                 {
                                     gameObject.canMoveSX = false;
                                     isTouchingDS = true;
@@ -43,7 +43,7 @@ public class CollisionDetectorWall extends Thread {
                             }
                             else
                             {
-                                if(wall.hitBox.contains(new Point(gameObject.hitBox.x + gameObject.hitBox.width,gameObject.hitBox.y + gameObject.hitBox.height/2)))
+                                if(wall.hitBox.contains(new Point(gameObject.hitBox.x + gameObject.hitBox.width,gameObject.hitBox.y + gameObject.hitBox.height/5)))
                                 {
                                     gameObject.canMoveDX = false;
                                     isTouchingDS = true;
@@ -51,13 +51,29 @@ public class CollisionDetectorWall extends Thread {
                             }
                             if(gameObject.hitBox.y < wall.hitBox.y + wall.hitBox.height)
                             {
-                                gameObject.canMoveDW = false;
-                                isTouchingUPDW=true;
+                                if(wall.hitBox.contains(new Point(gameObject.hitBox.x + gameObject.width/5, gameObject.hitBox.y + gameObject.height)))
+                                {
+                                    gameObject.canMoveDW = false;
+                                    isTouchingUPDW=true;
+                                }
+                                else if(wall.hitBox.contains(new Point(gameObject.hitBox.x + gameObject.width*4/5, gameObject.hitBox.y + gameObject.height)))
+                                {
+                                    gameObject.canMoveDW = false;
+                                    isTouchingUPDW=true;                                   
+                                }
                             }
-                            if(gameObject.hitBox.y + gameObject.hitBox.height < wall.hitBox.y)
+                            if(gameObject.hitBox.y + gameObject.hitBox.height > wall.hitBox.y)
                             {
-                                gameObject.canMoveUP = false;   
-                                isTouchingUPDW=true;
+                                if(wall.hitBox.contains(new Point(gameObject.hitBox.x + gameObject.width/5, gameObject.hitBox.y)))
+                                {
+                                    gameObject.canMoveUP = false;   
+                                    isTouchingUPDW=true;
+                                }
+                                else if(wall.hitBox.contains(new Point(gameObject.hitBox.x + gameObject.width*4/5, gameObject.hitBox.y)))
+                                {
+                                    gameObject.canMoveUP = false;   
+                                    isTouchingUPDW=true;
+                                }
                             }
                             
                         }
