@@ -5,19 +5,9 @@
  */
 package searchofthelostpussy;
 
-import Component.LevelInstantiator;
-import Controller.CanShooter;
-import Controller.CollisionDetectorEnemy;
-import Controller.CollisionDetectorProjectile;
-import Controller.CollisionDetectorWall;
-import Controller.Gravity;
-import Controller.ProjectileMovement;
-import Controller.Wasd;
-import View.Enemy;
-import View.Wall;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
+
+import java.util.logging.*;
+import javax.swing.*;
 
 /**
  *

@@ -5,7 +5,6 @@
  */
 package Component;
 
-import Controller.Jump;
 import java.util.List;
 import java.awt.Point;
 import java.awt.Rectangle;

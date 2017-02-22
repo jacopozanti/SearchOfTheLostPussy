@@ -5,22 +5,12 @@
  */
 package searchofthelostpussy;
 
-import Component.GameObject;
-import Component.LevelInstantiator;
-import Controller.CanShooter;
-import Controller.CollisionDetectorEnemy;
-import Controller.CollisionDetectorProjectile;
-import Controller.CollisionDetectorWall;
-import Controller.Gravity;
-import Controller.ProjectileMovement;
-import Model.ElementInGame;
-import View.MainCharacter;
-import View.Projectile;
-import View.Wall;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.JPanel;
+import Component.*;
+import Controller.*;
+import Model.*;
+import View.*;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
@@ -33,7 +23,7 @@ public class GameWindow extends JPanel {
     {
         instance = this;
         this.setPreferredSize(new Dimension(1280,720));
-        new LevelInstantiator("Prova.txt");
+        new LevelInstantiator();
         new Gravity().start();
         new CollisionDetectorWall().start();
         new CollisionDetectorEnemy().start();

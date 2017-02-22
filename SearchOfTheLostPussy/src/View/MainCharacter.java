@@ -7,12 +7,10 @@ package View;
 
 import Component.*;
 import Controller.CanJump;
-import Controller.CollisionDetectorWall;
 import Controller.Jump;
 import Controller.ShootArrow;
 import Controller.Wasd;
 import Model.ElementInGame;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;

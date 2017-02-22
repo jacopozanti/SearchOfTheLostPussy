@@ -14,7 +14,10 @@ import java.io.*;
  */
 public class LevelInstantiator {
     
-    public LevelInstantiator(String fileName){
+    int currentLvl = 0;
+    String fileName = "Level" + currentLvl + ".txt";
+    
+    public LevelInstantiator(){
         
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
         String sCurrentLine;
@@ -60,7 +63,22 @@ public class LevelInstantiator {
             e.printStackTrace();
         }
     
+    }
+    
+    public void ChangeLvl(){
+        if(MainCharacter.instance.posizione.x > 720){
+            
+            currentLvl++;
+            System.out.println("Cambio Livello +");
+            
         }
+        else if(MainCharacter.instance.posizione.x < 0){
+            
+            currentLvl--;
+            System.out.println("Cambio Livello -");
+            
+        }
+    }
 
     
 }

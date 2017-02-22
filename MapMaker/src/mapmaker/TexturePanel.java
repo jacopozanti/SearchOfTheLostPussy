@@ -21,10 +21,6 @@ public class TexturePanel extends JPanel{
     JButton[] textButton = new JButton[20];
     
     ImageIcon imgCancel = new ImageIcon(new ImageIcon("Img/imgCross.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)); 
-//new ImageIcon("Img/imgCross.png");
-    /*ImageIcon imageForOne = new ImageIcon(getClass().getResource("resources//one.png"));
-    ImageIcon imageForOned = new ImageIcon(getClass().getResource("resources//one.png"));
-    ImageIcon imageForOnef = new ImageIcon(getClass().getResource("resources//one.png"));*/
     
     public TexturePanel(){
         
@@ -197,7 +193,7 @@ public class TexturePanel extends JPanel{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Selected = "";
-                    imgSelected = new ImageIcon(new ImageIcon("Img/imgCross.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+                    imgSelected = new ImageIcon("");
                 }
             });
         
