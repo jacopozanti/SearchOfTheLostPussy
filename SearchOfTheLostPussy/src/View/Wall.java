@@ -7,15 +7,17 @@ package View;
 
 import Component.GameObject;
 import Model.ElementInGame;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author j.zanti
  */
 public class Wall extends GameObject {
-    
+    public ImageIcon image = null;
     public Wall(int x, int y)
     {
         this.height = 64 ;
@@ -24,6 +26,7 @@ public class Wall extends GameObject {
         this.hitBox = new Rectangle(height, width);
         this.posizione = new Point(x, y);
         this.animable = false;
+        image = new ImageIcon(new ImageIcon("Img/imgBlock0.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
         RepositionHitBox();
         ElementInGame.WallInGame.add(this);
     }
