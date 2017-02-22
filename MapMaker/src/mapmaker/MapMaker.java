@@ -75,6 +75,9 @@ public class MapMaker {
                                 bufferedWriter.write("empty");
                             }
                             else{
+
+                                
+                                
                                 bufferedWriter.write(mainPanel.getButtonText(j, i));
                             }
                             bufferedWriter.write(" ");

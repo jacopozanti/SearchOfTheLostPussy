@@ -16,7 +16,7 @@ import javax.swing.*;
  */
 public class MainPanel extends JPanel{
     
-    JButton[][] mainButton = new JButton[20][11];
+    Bottone2[][] mainButton = new Bottone2[20][11];
     
     public MainPanel(TexturePanel textPanel){
         
@@ -26,7 +26,7 @@ public class MainPanel extends JPanel{
             
             for (int i = 0; i < 20; i++) {
                 
-                mainButton[i][j]=new JButton();
+                mainButton[i][j]=new Bottone2();
                 mainButton[i][j].setPreferredSize(new Dimension(64,64));
                 mainButton[i][j].setMargin(new Insets(0, 0, 0, 0));
                 mainButton[i][j].setFocusPainted(false);
@@ -38,8 +38,10 @@ public class MainPanel extends JPanel{
                     public void actionPerformed(ActionEvent e) {
                         
                         
-                        JButton btn = (JButton)e.getSource();
-                        btn.setText(textPanel.getSelected());
+                        Bottone2 btn = (Bottone2)e.getSource();
+                        //btn.setText(textPanel.getSelected());
+                        btn.contenuto = textPanel.getSelected();
+                        btn.setIcon(textPanel.imgSelected);
                     }
                 });
             }
@@ -49,7 +51,7 @@ public class MainPanel extends JPanel{
     }
     
     public String getButtonText(int i, int j){
-        return mainButton[i][j].getText();
+        return mainButton[i][j].contenuto;
     }
     
 }
