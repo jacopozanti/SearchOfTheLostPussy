@@ -53,7 +53,7 @@ public class TexturePanel extends JPanel{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Selected = textButton[1].getText();
-                    imgSelected = new ImageIcon(new ImageIcon("Img/imgBlock1.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+                    imgSelected = new ImageIcon(new ImageIcon("Img/imgBlock1.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
                 }
             });
         
