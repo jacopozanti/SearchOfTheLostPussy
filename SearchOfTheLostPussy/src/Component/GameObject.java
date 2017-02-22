@@ -10,6 +10,7 @@ import java.util.List;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -23,6 +24,7 @@ public abstract class GameObject {
         UP,
         DOWN
     };
+    public ImageIcon image = null;
     public boolean isEnemy = false;
     public boolean isWall = false;
     public Rectangle hitBox = null;

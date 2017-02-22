@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
  * @author j.zanti
  */
 public class Wall extends GameObject {
-    public ImageIcon image = null;
+    //public ImageIcon image = null;
     public Wall(int x, int y)
     {
         this.height = 64 ;

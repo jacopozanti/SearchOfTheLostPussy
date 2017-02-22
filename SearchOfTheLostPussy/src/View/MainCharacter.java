@@ -12,8 +12,10 @@ import Controller.Jump;
 import Controller.ShootArrow;
 import Controller.Wasd;
 import Model.ElementInGame;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -44,6 +46,7 @@ public class MainCharacter extends GameObject {
         new ShootArrow().start();
         facing = Direction.RIGHT;
         new CanJump().start();
+        image = new ImageIcon("Img/Zant/zantiFermodx.png");
     }
 
     @Override
