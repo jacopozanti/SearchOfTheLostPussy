@@ -19,6 +19,7 @@ import View.Projectile;
 import View.Wall;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.JPanel;
 
 /**
@@ -53,7 +54,8 @@ public class GameWindow extends JPanel {
             for (Object object : ElementInGame.WallInGame)
             {
                 Wall wall = ((Wall)object);
-                g.drawRect(wall.posizione.x, wall.posizione.y, wall.height , wall.width);           
+                //g.drawRect(wall.posizione.x, wall.posizione.y, wall.height , wall.width);    
+                g.drawImage(wall.image.getImage(), wall.posizione.x, wall.posizione.y, this);
             }
             for (Object object : ElementInGame.ProjectileInGame)
             {
