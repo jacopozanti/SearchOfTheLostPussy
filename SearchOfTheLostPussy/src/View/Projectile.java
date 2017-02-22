@@ -17,7 +17,8 @@ import searchofthelostpussy.GameWindow;
  */
 public class Projectile extends GameObject {
     public int dmg;
-    public Projectile(int x, int y, Direction dir)
+    public boolean enemies;
+    public Projectile(int x, int y, Direction dir, boolean en)
     {
         hitBox = new Rectangle(10,10);
         posizione = new Point(x,y);
@@ -27,6 +28,7 @@ public class Projectile extends GameObject {
         speed = 4;
         dmg = 3;
         ElementInGame.ProjectileInGame.add(this);
+        enemies = en;
     }
 
     @Override
@@ -72,6 +74,11 @@ public class Projectile extends GameObject {
     }
     @Override
     public void TakeDamage(int dmg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Shoot() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

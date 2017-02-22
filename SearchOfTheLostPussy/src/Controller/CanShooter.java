@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Component.GameObject;
+import Model.ElementInGame;
 import View.MainCharacter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +20,11 @@ public class CanShooter extends Thread{
     {
         while(true)
         {
-            MainCharacter.instance.canShoot = true;
+            for (Object objectIn : ElementInGame.ElementInGame) {
+                GameObject gameObject = (GameObject)objectIn;
+                gameObject.canShoot = true;
+                MainCharacter.instance.canShoot = true;
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {

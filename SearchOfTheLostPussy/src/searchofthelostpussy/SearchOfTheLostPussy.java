@@ -43,7 +43,7 @@ public class SearchOfTheLostPussy {
         {
             gameWindow.repaint();
             try {
-                Thread.sleep(15);
+                Thread.sleep(16);
             } catch (InterruptedException ex) {
                 Logger.getLogger(SearchOfTheLostPussy.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -44,7 +44,7 @@ public class AI extends Thread{
                         else
                             gameObject.moveRx = true;  
                     }
-                         
+                    gameObject.Shoot();
                 }
             }
             try {

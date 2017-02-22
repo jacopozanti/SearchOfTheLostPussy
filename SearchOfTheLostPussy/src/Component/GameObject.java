@@ -46,6 +46,7 @@ public abstract class GameObject {
     public int life = 0;
     public int dmg;
     public boolean moveRx = true;
+    public boolean canShoot = false;
     //MOVIMENTI
     public abstract void MoveLeft(int movement);
     public abstract void MoveRight(int movement);
@@ -53,5 +54,5 @@ public abstract class GameObject {
     public abstract void MoveDown(int movement);
     public abstract void RepositionHitBox();
     public abstract void TakeDamage(int dmg);
-    
+    public abstract void Shoot();
 }

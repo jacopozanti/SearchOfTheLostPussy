@@ -101,7 +101,7 @@ public class MainCharacter extends GameObject {
     {
         if(canShoot)
         {
-            new Projectile(this.posizione.x + this.width/2, this.posizione.y + this.height/2, this.direction);
+            new Projectile(this.posizione.x + this.width/2, this.posizione.y + this.height/2, this.direction, false);
             canShoot = false;
         }
     }

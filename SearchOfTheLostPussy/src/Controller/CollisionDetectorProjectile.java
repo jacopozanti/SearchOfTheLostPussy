@@ -27,12 +27,22 @@ public class CollisionDetectorProjectile extends Thread{
                     Projectile projectile = (Projectile)object;
                     for (Object objectIn : ElementInGame.ElementInGame) {
                         GameObject gameObject = (GameObject)objectIn;
-                        if(gameObject.isEnemy)
+                        if(gameObject.isEnemy && !projectile.enemies)
+                        {
                             if(projectile.hitBox.intersects(gameObject.hitBox))
                             {
                                 gameObject.TakeDamage(projectile.dmg);
                                 projectile.RemoveProjectile();
                             }  
+                        }
+                        else if(!gameObject.isEnemy && projectile.enemies)
+                        {
+                            if(projectile.hitBox.intersects(gameObject.hitBox))
+                            {
+                                gameObject.TakeDamage(projectile.dmg);
+                                projectile.RemoveProjectile();
+                            }  
+                        }
                     }
                 }
             }
