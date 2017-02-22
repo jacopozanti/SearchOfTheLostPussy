@@ -7,7 +7,6 @@ package View;
 
 import Component.GameObject;
 import Controller.AI;
-import Controller.CollisionDetectorWall;
 import Controller.Jump;
 import Model.ElementInGame;
 import java.awt.Point;
@@ -17,10 +16,9 @@ import java.awt.Rectangle;
  *
  * @author j.zanti
  */
-public class Enemy extends GameObject{
-
+public class EnemyBomber extends GameObject{
     
-    public Enemy(int x, int y)
+    public EnemyBomber(int x, int y)
     {
         isEnemy = true;
         hitBox = new Rectangle(50,50);
@@ -33,7 +31,7 @@ public class Enemy extends GameObject{
         canMoveSX = true;
         canMoveUP = true;
         canMoveDW = true;
-        direction = Direction.LEFT;
+        direction = GameObject.Direction.LEFT;
         movement = AI.istance;
         speed = 2;
         life = 3;
@@ -44,6 +42,7 @@ public class Enemy extends GameObject{
         ElementInGame.ElementInGame.add(this);
         dmg = 5;
         jump = new Jump();
+        canShoot = true;
     }
     
     
@@ -54,8 +53,8 @@ public class Enemy extends GameObject{
             this.posizione.x -= movement;
             RepositionHitBox();
         }
-        this.direction = Direction.LEFT;
-        }
+        this.direction = GameObject.Direction.LEFT;
+    }
 
     @Override
     public void MoveRight(int movement) {
@@ -65,7 +64,7 @@ public class Enemy extends GameObject{
             this.posizione.x += movement;
             RepositionHitBox();
         }
-        this.direction = Direction.RIGHT;
+        this.direction = GameObject.Direction.RIGHT;
 
     }
 
@@ -76,18 +75,28 @@ public class Enemy extends GameObject{
 
     @Override
     public void MoveDown(int movement) {
-        if(this.canMoveDW)
-        {
-            this.posizione.y += movement;
-            RepositionHitBox();
-        }
-        this.direction = Direction.DOWN;
+//        if(this.canMoveDW)
+//        {
+//            this.posizione.y += movement;
+//            RepositionHitBox();
+//        }
+        //this.direction = GameObject.Direction.DOWN;
     }
 
     @Override
     public void RepositionHitBox() {
         hitBox.x = posizione.x;
         hitBox.y = posizione.y;
+    }
+    
+    public void Shoot()
+    {
+        if(canShoot)
+        {
+            new Projectile(this.posizione.x + this.width/2, this.posizione.y + this.height/2, Direction.DOWN, true);
+            canShoot = false;
+
+        }
     }
 
     @Override
@@ -98,16 +107,6 @@ public class Enemy extends GameObject{
             ElementInGame.ElementInGame.remove(this);
         }
     }
-
-    @Override
-    public void Shoot() {
-
-    }
-    
-    
-    
-    
-    
-    
     
 }
+

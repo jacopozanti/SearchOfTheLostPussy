@@ -2,6 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/CanJump.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/searchofthelostpussy/SearchOfTheLostPussy.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/CanShooter.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/CollisionDetectorWall.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/Wasd.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/Gravity.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/Jump.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Component/GameObject.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/View/MainCharacter.java</file>
+            <file>file:/C:/Users/j.zanti/SearchOfTheLostPussy/SearchOfTheLostPussy/src/Controller/CollisionDetectorProjectile.java</file>
+        </group>
+>>>>>>> 986e7a521f1239cf40025680ff8ebaafe0dd84dc
     </open-files>
 </project-private>

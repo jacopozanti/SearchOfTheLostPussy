@@ -36,7 +36,14 @@ public class Jump extends Thread{
         for(int i = 0;i<=100;i++)
         {
             //MainCharacter.instance.canMoveDW = false;
-            MainCharacter.instance.MoveUp(2);
+            if(MainCharacter.instance.canMoveUP)
+            {
+                MainCharacter.instance.MoveUp(2);
+            }
+            else 
+            {
+                break;
+            }
             if(direction == Direction.RIGHT)
                 MainCharacter.instance.MoveRight(1);
             else if(direction == Direction.LEFT)
