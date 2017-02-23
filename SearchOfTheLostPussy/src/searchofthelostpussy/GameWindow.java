@@ -37,6 +37,8 @@ public class GameWindow extends JPanel {
 
             super.paintComponent(g);
             g.drawImage(MainCharacter.instance.image.getImage(), MainCharacter.instance.posizione.x, MainCharacter.instance.posizione.y, this);
+            
+            g.drawImage(MainCharacter.instance.image.getImage(), MainCharacter.instance.posizione.x, MainCharacter.instance.posizione.y, this);
             for (Object object : ElementInGame.ElementInGame) 
             {
                 GameObject gameObject = ((GameObject)object);

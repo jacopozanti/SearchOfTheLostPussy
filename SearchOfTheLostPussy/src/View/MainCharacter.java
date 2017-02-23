@@ -11,8 +11,11 @@ import Controller.Jump;
 import Controller.ShootArrow;
 import Controller.Wasd;
 import Model.ElementInGame;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -30,6 +33,7 @@ public class MainCharacter extends GameObject {
         canMoveUP = true;
         canMoveDW = true;
         instance = this;
+        image = new ImageIcon(new ImageIcon("Img/Zanti/zantiFermodx.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
         ElementInGame.ElementInGame.add(this);
         hitBox = new Rectangle(64,64);
         posizione = new Point(x, y);
@@ -44,7 +48,7 @@ public class MainCharacter extends GameObject {
         new ShootArrow().start();
         facing = Direction.RIGHT;
         new CanJump().start();
-        image = new ImageIcon("Img/Zant/zantiFermodx.png");
+        LoadImage();
     }
 
     @Override
@@ -64,9 +68,11 @@ public class MainCharacter extends GameObject {
         {
             this.posizione.x -= movement;
             RepositionHitBox();
+            image = this.movimentoSX.listIterator().next();
         }
         this.direction = Direction.LEFT;
         this.facing = Direction.LEFT;
+
         }
 
     @Override
@@ -76,6 +82,7 @@ public class MainCharacter extends GameObject {
         {
             this.posizione.x += movement;
             RepositionHitBox();
+            image = this.movimentoDX.listIterator().next();
         }
         this.direction = Direction.RIGHT;
         this.facing = Direction.RIGHT;
@@ -113,6 +120,20 @@ public class MainCharacter extends GameObject {
         if(life < 0)
         {
             System.out.println("death");
+        }
+    }
+
+    private void LoadImage() {
+        String PATH = "Img/Zanti/";
+        this.movimentoDX.add(new ImageIcon(new ImageIcon(PATH+"zantiFermodx.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT)));
+        for(int i = 1; i<=3; i++)
+        {
+            this.movimentoDX.add(new ImageIcon(new ImageIcon(PATH+"zantimov"+i+"dx.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT)));
+        }
+        this.movimentoSX.add(new ImageIcon(new ImageIcon(PATH+"zantiFermosx.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT)));
+        for(int i = 1; i<=3; i++)
+        {
+            this.movimentoDX.add(new ImageIcon(new ImageIcon(PATH+"zantimov"+i+"sx.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT)));
         }
     }
     
