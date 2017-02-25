@@ -29,9 +29,9 @@ public abstract class GameObject {
     public Rectangle hitBox = null;
     public Point posizione = null;
     public boolean animable = false;
-    public List<ImageIcon> movimentoSX = null;
-    public List<ImageIcon> movimentoDX = null;
-    public List<ImageIcon> attacco = null;
+    public ImageIcon[] movimentoSX = null;
+    public ImageIcon[] movimentoDX = null;
+    public ImageIcon[] attacco = null;
     public int height = 0;
     public int width = 0;
     public Thread jump;
