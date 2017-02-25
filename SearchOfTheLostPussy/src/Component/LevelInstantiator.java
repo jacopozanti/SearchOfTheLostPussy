@@ -5,6 +5,7 @@
  */
 package Component;
 
+import Model.ElementInGame;
 import View.*;
 import java.io.*;
 
@@ -14,40 +15,56 @@ import java.io.*;
  */
 public class LevelInstantiator {
     public static LevelInstantiator instance;
-    int currentLvl = 0;
+    int currentLvl = -1;
     String fileName = "Level" + currentLvl + ".txt";
     
     public LevelInstantiator(){
         instance = this;
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-        String sCurrentLine;
-        
-        int y = 0;
-        int count = 0;
+       ChangeLvl('+');
+    }
+    
+    public void ChangeLvl(char a){
+        if(a == '+'){
+            ElementInGame.ElementInGame.clear();
+            ElementInGame.ProjectileInGame.clear();
+            ElementInGame.WallInGame.clear();
+            currentLvl++;
+            fileName = "Level" + currentLvl + ".txt";
+            System.out.println("Cambio Livello +");
+            try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String sCurrentLine;
+
+            int y = 0;
+            int count = 0;
 
             while ((sCurrentLine = br.readLine()) != null) {
                 int x = 0;
                 for (String word : sCurrentLine.split(" ") ) {
-                    
 
-                        
+
+
                         if(word.equals("empty")){
                             x++;
                             count++;
                         }
-                        
+
                         if(word.equals("Text1")){
                             new Wall(x*64,y*64);
                             x++;
                             count++;
                         }
-                        if(word.equals("Text2"))
+                        if(word.equals("Text2")){
+                            new Wall(x*64,y*64);
+                            x++;
+                            count++;
+                        }
+                        if(word.equals("Text18"))
                         {
                             new Enemy(x*64,y*64);
                             x++;
                             count++;
                         }
-                        if(word.equals("Text3"))
+                        if(word.equals("Text19"))
                         {
                             new MainCharacter(x*64,y*64);
                             x++;
@@ -56,20 +73,12 @@ public class LevelInstantiator {
                 }
                 y++;
             }
-            
-            
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
-    }
-    
-    public void ChangeLvl(char a){
-        if(a == '+'){
-            
-            currentLvl++;
-            System.out.println("Cambio Livello +");
             
         }
         else if(a == '-'){
