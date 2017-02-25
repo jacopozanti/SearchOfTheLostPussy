@@ -6,6 +6,7 @@
 package View;
 
 import Component.GameObject;
+import Component.LevelInstantiator;
 import Controller.AI;
 import Controller.CollisionDetectorWall;
 import Controller.Jump;
@@ -96,6 +97,12 @@ public class Enemy extends GameObject{
         if(life < 0)
         {
             ElementInGame.ElementInGame.remove(this);
+            if(ElementInGame.ElementInGame.size() == 1)
+            {
+                
+                LevelInstantiator.instance.ChangeLvl('+');
+                                
+            }
         }
     }
 
