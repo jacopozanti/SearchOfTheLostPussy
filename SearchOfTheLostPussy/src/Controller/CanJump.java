@@ -23,7 +23,7 @@ public class CanJump extends Thread{
                 MainCharacter.instance.canJump = true;
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException ex) {
                 Logger.getLogger(CanShooter.class.getName()).log(Level.SEVERE, null, ex);
             }

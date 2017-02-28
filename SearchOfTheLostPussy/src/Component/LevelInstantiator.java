@@ -8,7 +8,7 @@ package Component;
 import Model.ElementInGame;
 import View.*;
 import java.io.*;
-
+import searchofthelostpussy.*;
 /**
  *
  * @author j.zanti
@@ -19,24 +19,25 @@ public class LevelInstantiator {
     String fileName = "Level" + currentLvl + ".txt";
     
     public LevelInstantiator(){
-        instance = this;
+       instance = this;
        ChangeLvl('+');
     }
     
     public void ChangeLvl(char a){
         if(a == '+'){
-            ElementInGame.ElementInGame.clear();
-            ElementInGame.ProjectileInGame.clear();
-            ElementInGame.WallInGame.clear();
+
             currentLvl++;
             fileName = "Level" + currentLvl + ".txt";
-            System.out.println("Cambio Livello +");
+            System.out.println("Cambio Livello " + fileName);
             try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String sCurrentLine;
 
             int y = 0;
             int count = 0;
-
+            MainCharacter.instance = null;
+            ElementInGame.ElementInGame.clear();
+            ElementInGame.ProjectileInGame.clear();
+            ElementInGame.WallInGame.clear();
             while ((sCurrentLine = br.readLine()) != null) {
                 int x = 0;
                 for (String word : sCurrentLine.split(" ") ) {

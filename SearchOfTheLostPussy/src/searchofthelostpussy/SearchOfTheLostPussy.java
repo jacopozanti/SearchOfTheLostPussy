@@ -19,6 +19,7 @@ public class SearchOfTheLostPussy {
      * @param args the command line arguments
      */
     public static JFrame gameFrame;
+    public static boolean canRefresh = true;
     public static void main(String[] args) {
         gameFrame = new JFrame();
         GameWindow gameWindow = new GameWindow();

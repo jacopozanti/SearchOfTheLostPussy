@@ -19,7 +19,7 @@ import searchofthelostpussy.*;
  * @author daddi
  */
 public class Wasd extends Thread implements KeyListener{
-    
+    private KeyEvent keyPressed = null;
     public Wasd() {
         GameWindow.instance.addKeyListener(this);
         GameWindow.instance.setFocusable(true);
@@ -27,7 +27,21 @@ public class Wasd extends Thread implements KeyListener{
     
     @Override
     public void run() {
-        
+        while(true)
+        {
+            if(keyPressed != null)
+            {
+                if(keyPressed.getKeyCode() == KeyEvent.VK_D)
+                    MainCharacter.instance.MoveRight(10);
+                else if(keyPressed.getKeyCode() == KeyEvent.VK_A)
+                    MainCharacter.instance.MoveLeft(10);
+            }
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     @Override
@@ -39,15 +53,15 @@ public class Wasd extends Thread implements KeyListener{
     public void keyPressed(KeyEvent ke) {
         
         if (KeyEvent.VK_A == ke.getKeyCode()) {
-            MainCharacter.instance.MoveLeft(5);
+            keyPressed = ke;   
         }
         
         else if (KeyEvent.VK_S == ke.getKeyCode()) {
-            MainCharacter.instance.MoveDown(5);
+            keyPressed = ke;   
         }
         
         else if (KeyEvent.VK_D == ke.getKeyCode()) {
-            MainCharacter.instance.MoveRight(5);
+            keyPressed = ke;   
         }
         
         else if (KeyEvent.VK_W == ke.getKeyCode()) {
@@ -59,10 +73,12 @@ public class Wasd extends Thread implements KeyListener{
             }
         }
 
+         
+
     }
 
     @Override
     public void keyReleased(KeyEvent ke) {
-
+        keyPressed = null;
     }
 }

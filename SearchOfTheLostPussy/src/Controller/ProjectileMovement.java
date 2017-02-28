@@ -27,16 +27,16 @@ public class ProjectileMovement extends Thread{
                     switch(projectile.direction)
                     {
                         case LEFT:
-                            projectile.MoveLeft(4);
+                            projectile.MoveLeft(20);
                             break;
                         case RIGHT:
-                            projectile.MoveRight(4);
+                            projectile.MoveRight(20);
                             break;
                         case UP:
-                            projectile.MoveUp(4);
+                            projectile.MoveUp(20);
                             break;
                         case DOWN:
-                            projectile.MoveDown(4);
+                            projectile.MoveDown(20);
                             break;       
                     }
                 }
