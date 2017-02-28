@@ -54,7 +54,7 @@ public class LevelInstantiator {
                             count++;
                         }
                         if(word.equals("Text2")){
-                            new Wall(x*64,y*64);
+                            new Wall(x*64,y*64,"Block1");
                             x++;
                             count++;
                         }

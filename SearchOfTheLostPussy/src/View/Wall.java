@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
  * @author j.zanti
  */
 public class Wall extends GameObject {
-    //public ImageIcon image = null;
+    
     public Wall(int x, int y)
     {
         this.height = 64 ;
@@ -27,6 +27,18 @@ public class Wall extends GameObject {
         this.posizione = new Point(x, y);
         this.animable = false;
         image = new ImageIcon(new ImageIcon("Img/imgBlock0.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
+        RepositionHitBox();
+        ElementInGame.WallInGame.add(this);
+    }
+    
+    public Wall(int x, int y, String img){
+        this.height = 64 ;
+        this.width = 64;
+        this.isWall = true;
+        this.hitBox = new Rectangle(height, width);
+        this.posizione = new Point(x, y);
+        this.animable = false;
+        image = new ImageIcon(new ImageIcon("Img/img"+img+".png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
         RepositionHitBox();
         ElementInGame.WallInGame.add(this);
     }
