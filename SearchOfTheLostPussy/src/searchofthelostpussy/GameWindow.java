@@ -19,12 +19,14 @@ import javax.swing.*;
 public class GameWindow extends JPanel {
     MainCharacter a;
     public static GameWindow instance = null;
+    private ImageIcon backGround;
     public GameWindow()
     {
         instance = this;
         this.setPreferredSize(new Dimension(1280,720));
         startThreads();
         new LevelInstantiator();
+        backGround = new ImageIcon(new ImageIcon("Img/BackGround.png").getImage().getScaledInstance(1280, 720, Image.SCALE_DEFAULT));
 
     }
     
@@ -51,7 +53,7 @@ public class GameWindow extends JPanel {
 
             super.paintComponent(g);
 
-
+                g.drawImage(backGround.getImage(), 0, 0, instance);
                 //g.drawImage(MainCharacter.instance.image.getImage(), MainCharacter.instance.posizione.x, MainCharacter.instance.posizione.y, this);
                 for (Object object : ElementInGame.ElementInGame) 
                 {
