@@ -7,8 +7,10 @@ package Component;
 
 import Model.ElementInGame;
 import View.*;
+import java.awt.Image;
 import java.awt.Point;
 import java.io.*;
+import javax.swing.ImageIcon;
 import searchofthelostpussy.*;
 /**
  *
@@ -31,6 +33,10 @@ public class LevelInstantiator {
         if(a == '+'){
 
             currentLvl++;
+            if(currentLvl > 3)
+            {
+                GameWindow.instance.backGround = new ImageIcon(new ImageIcon("Img/BackGround2.png").getImage().getScaledInstance(1280, 720, Image.SCALE_DEFAULT));
+            }
             fileName = "Level" + currentLvl + ".txt";
             System.out.println("Cambio Livello " + fileName);
             try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -84,6 +90,7 @@ public class LevelInstantiator {
                         {
                             try
                             {
+                                MainCharacter.instance.life++;
                                 MainCharacter.instance.SetPosition(x*64 , y*64); 
                                 ElementInGame.ElementInGame.add(MainCharacter.instance);
                             }

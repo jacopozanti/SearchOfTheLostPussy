@@ -69,8 +69,16 @@ public class Wasd extends Thread implements KeyListener{
         }
         
         else if (KeyEvent.VK_W == ke.getKeyCode()) {
+            
             if(MainCharacter.instance.canJump && !MainCharacter.instance.canMoveDW)
             {
+
+                MainCharacter.instance.jump.interrupt();
+                try {
+                    MainCharacter.instance.jump.join();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Wasd.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 MainCharacter.instance.jump = new Jump();
                 MainCharacter.instance.jump.start();
                 MainCharacter.instance.canJump = false;

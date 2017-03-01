@@ -34,7 +34,7 @@ public class CollisionDetectorEnemy extends Thread {
                     {
                         MainCharacter.instance.TakeDamage(gameObject.dmg);
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(1200);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(CollisionDetectorEnemy.class.getName()).log(Level.SEVERE, null, ex);
                         }

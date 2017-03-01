@@ -19,7 +19,7 @@ import javax.swing.*;
 public class GameWindow extends JPanel {
     MainCharacter a;
     public static GameWindow instance = null;
-    private ImageIcon backGround;
+    public ImageIcon backGround;
     public GameWindow()
     {
         instance = this;
