@@ -19,8 +19,10 @@ import searchofthelostpussy.*;
  * @author daddi
  */
 public class Wasd extends Thread implements KeyListener{
+    public static Wasd instance = null;
     private KeyEvent keyPressed = null;
     public Wasd() {
+        instance = this;
         GameWindow.instance.addKeyListener(this);
         GameWindow.instance.setFocusable(true);
     }

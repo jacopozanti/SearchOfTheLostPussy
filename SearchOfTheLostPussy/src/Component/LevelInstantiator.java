@@ -24,6 +24,9 @@ public class LevelInstantiator {
     }
     
     public void ChangeLvl(char a){
+        
+        GameWindow.instance.stopThreads();
+        
         if(a == '+'){
 
             currentLvl++;
@@ -88,6 +91,9 @@ public class LevelInstantiator {
             System.out.println("Cambio Livello -");
             
         }
+        
+        GameWindow.instance.startThreads();
+        
     }
 
     

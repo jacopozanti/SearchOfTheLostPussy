@@ -16,10 +16,12 @@ import java.util.logging.Logger;
  * @author d.gozzi
  */
 public class Jump extends Thread{
+    public static Jump instance;
     public boolean jumping;
     public Direction direction;
     public Jump()
     {
+        instance = this;
         jumping = false;
         try
         {

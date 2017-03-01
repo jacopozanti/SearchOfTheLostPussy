@@ -16,6 +16,11 @@ import java.util.logging.Logger;
  * @author daddi
  */
 public class CanShooter extends Thread{
+    public static CanShooter instance = null;
+    
+    public CanShooter(){
+        instance = this;
+    }
     public void run()
     {
         while(true)

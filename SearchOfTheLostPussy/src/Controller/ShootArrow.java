@@ -19,8 +19,9 @@ import searchofthelostpussy.*;
  * @author daddi
  */
 public class ShootArrow extends Thread implements KeyListener{
-    
+    public static ShootArrow instance = null;
     public ShootArrow() {
+        instance = this;
         GameWindow.instance.addKeyListener(this);
         GameWindow.instance.setFocusable(true);
     }

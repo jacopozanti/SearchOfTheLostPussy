@@ -14,6 +14,13 @@ import java.util.logging.Logger;
  * @author j.zanti
  */
 public class CanJump extends Thread{
+    
+    public static CanJump instance = null;
+    
+    public CanJump(){
+        instance = this;
+    }
+    
     public void run()
     {
         while(true)

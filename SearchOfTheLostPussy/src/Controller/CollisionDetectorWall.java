@@ -15,8 +15,15 @@ import java.awt.Point;
  * @author j.zanti
  */
 public class CollisionDetectorWall extends Thread {
+    
     private boolean isTouchingDS = false;
     private boolean isTouchingUPDW = false;
+    public static CollisionDetectorWall instance = null;
+    
+    public CollisionDetectorWall(){
+        instance = this;
+    }
+    
     public void run()
     {
         while(true)

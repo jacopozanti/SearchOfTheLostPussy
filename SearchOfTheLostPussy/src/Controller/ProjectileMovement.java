@@ -15,6 +15,11 @@ import java.util.logging.Logger;
  * @author daddi
  */
 public class ProjectileMovement extends Thread{
+    public static ProjectileMovement instance = null;
+    
+    public ProjectileMovement(){
+        instance = this;
+    }
     
     public void run()
     {

@@ -16,6 +16,12 @@ import java.util.logging.Logger;
  * @author daddi
  */
 public class CollisionDetectorEnemy extends Thread {
+    public static CollisionDetectorEnemy instance = null;
+    
+    public CollisionDetectorEnemy(){
+        instance = this;
+    }
+    
     public void run()
     {
         while(true)

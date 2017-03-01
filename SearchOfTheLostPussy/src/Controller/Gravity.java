@@ -15,6 +15,11 @@ import java.util.logging.Logger;
  * @author j.zanti
  */
 public class Gravity extends Thread{
+    public static Gravity instance = null;
+    
+    public Gravity(){
+        instance = this;
+    }
     public void run()
     {
         while(true)

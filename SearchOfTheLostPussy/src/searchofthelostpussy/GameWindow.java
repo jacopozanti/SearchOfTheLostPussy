@@ -23,14 +23,29 @@ public class GameWindow extends JPanel {
     {
         instance = this;
         this.setPreferredSize(new Dimension(1280,720));
+        startThreads();
         new LevelInstantiator();
+
+    }
+    
+    public void stopThreads(){
+        Gravity.instance.interrupt();
+        CollisionDetectorWall.instance.interrupt();
+        CollisionDetectorEnemy.instance.interrupt();
+        CollisionDetectorProjectile.instance.interrupt();
+        ProjectileMovement.instance.interrupt();
+        CanShooter.instance.interrupt();
+    }
+    
+    public void startThreads(){
         new Gravity().start();
         new CollisionDetectorWall().start();
         new CollisionDetectorEnemy().start();
         new CollisionDetectorProjectile().start();
         new ProjectileMovement().start();
         new CanShooter().start();
-    }
+    }    
+    
     @Override
     public void paintComponent(Graphics g)
     {
