@@ -25,10 +25,7 @@ public class CanJump extends Thread{
     {
         while(isRunning)
         {
-            if(!MainCharacter.instance.canMoveDW)
-            {
-                MainCharacter.instance.canJump = true;
-            }
+            MainCharacter.instance.canJump = true;            
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {

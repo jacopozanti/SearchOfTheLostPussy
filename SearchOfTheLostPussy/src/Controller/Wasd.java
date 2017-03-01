@@ -80,7 +80,7 @@ public class Wasd extends Thread implements KeyListener{
         {
             LevelInstantiator.instance.ChangeLvl('+');
         }
-         
+
 
     }
 

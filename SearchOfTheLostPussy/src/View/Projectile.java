@@ -28,7 +28,7 @@ public class Projectile extends GameObject {
         width = 10;
         direction = dir;
         speed = 4;
-        dmg = 3;
+        dmg = 1;
 
         enemies = en;
         if(!enemies)

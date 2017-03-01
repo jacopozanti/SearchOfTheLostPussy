@@ -38,7 +38,7 @@ public class EnemyBomber extends GameObject{
         direction = GameObject.Direction.LEFT;
         movement = AI.istance;
         speed = 2;
-        life = 3;
+        life = 1;
         if(AI.istance == null)
         {
             new AI().start();
