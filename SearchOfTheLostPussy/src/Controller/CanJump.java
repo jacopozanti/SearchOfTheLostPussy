@@ -16,14 +16,14 @@ import java.util.logging.Logger;
 public class CanJump extends Thread{
     
     public static CanJump instance = null;
-    
+    public boolean isRunning = true;
     public CanJump(){
         instance = this;
     }
     
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             if(!MainCharacter.instance.canMoveDW)
             {
@@ -35,5 +35,9 @@ public class CanJump extends Thread{
                 Logger.getLogger(CanShooter.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

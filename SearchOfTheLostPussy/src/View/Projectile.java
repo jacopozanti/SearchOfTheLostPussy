@@ -29,9 +29,17 @@ public class Projectile extends GameObject {
         direction = dir;
         speed = 4;
         dmg = 3;
-        ElementInGame.ProjectileInGame.add(this);
+
         enemies = en;
-        image = new ImageIcon(new ImageIcon("Img/Shot/zanti.png").getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
+        if(!enemies)
+        {
+            image = new ImageIcon(new ImageIcon("Img/Shot/zanti.png").getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
+        }
+        else
+        {
+            image = new ImageIcon(new ImageIcon("Img/Shot/gozzi.png").getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));   
+        }
+        ElementInGame.ProjectileInGame.add(this);
     }
 
     @Override

@@ -7,6 +7,7 @@ package Controller;
 
 import Component.GameObject;
 import Component.GameObject.Direction;
+import Component.LevelInstantiator;
 import View.*;
 import java.awt.event.*;
 import java.util.logging.*;
@@ -21,6 +22,7 @@ import searchofthelostpussy.*;
 public class Wasd extends Thread implements KeyListener{
     public static Wasd instance = null;
     private KeyEvent keyPressed = null;
+    public boolean isRunning = true;
     public Wasd() {
         instance = this;
         GameWindow.instance.addKeyListener(this);
@@ -29,7 +31,7 @@ public class Wasd extends Thread implements KeyListener{
     
     @Override
     public void run() {
-        while(true)
+        while(isRunning)
         {
             if(keyPressed != null)
             {
@@ -74,7 +76,10 @@ public class Wasd extends Thread implements KeyListener{
                 MainCharacter.instance.canJump = false;
             }
         }
-
+        else if(KeyEvent.VK_U == ke.getKeyCode())
+        {
+            LevelInstantiator.instance.ChangeLvl('+');
+        }
          
 
     }
@@ -82,5 +87,9 @@ public class Wasd extends Thread implements KeyListener{
     @Override
     public void keyReleased(KeyEvent ke) {
         keyPressed = null;
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

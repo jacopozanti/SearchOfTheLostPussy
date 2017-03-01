@@ -29,12 +29,12 @@ public class GameWindow extends JPanel {
     }
     
     public void stopThreads(){
-        Gravity.instance.interrupt();
-        CollisionDetectorWall.instance.interrupt();
-        CollisionDetectorEnemy.instance.interrupt();
-        CollisionDetectorProjectile.instance.interrupt();
-        ProjectileMovement.instance.interrupt();
-        CanShooter.instance.interrupt();
+        Gravity.instance.kill();
+        CollisionDetectorWall.instance.kill();
+        CollisionDetectorEnemy.instance.kill();
+        CollisionDetectorProjectile.instance.kill();
+        ProjectileMovement.instance.kill();
+        CanShooter.instance.kill();
     }
     
     public void startThreads(){
@@ -69,7 +69,7 @@ public class GameWindow extends JPanel {
                 for (Object object : ElementInGame.ProjectileInGame)
                 {
                     Projectile projectile = ((Projectile)object);
-                    g.drawRect(projectile.posizione.x, projectile.posizione.y, projectile.height , projectile.width);           
+                    //g.drawRect(projectile.posizione.x, projectile.posizione.y, projectile.height , projectile.width);           
                     g.drawImage(projectile.image.getImage(), projectile.posizione.x, projectile.posizione.y , this);
                 }
                 for (Object object : ElementInGame.HudInGame) 

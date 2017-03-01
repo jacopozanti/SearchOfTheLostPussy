@@ -18,14 +18,14 @@ import java.util.logging.Logger;
 public class CollisionDetectorProjectile extends Thread{
     
     public static CollisionDetectorProjectile instance;
-    
+    public boolean isRunning = true;
     public CollisionDetectorProjectile(){
         instance = this;
     }
     
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             try
             {
@@ -56,5 +56,9 @@ public class CollisionDetectorProjectile extends Thread{
             {
             }
         }
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

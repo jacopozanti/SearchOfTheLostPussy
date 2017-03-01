@@ -19,14 +19,14 @@ public class CollisionDetectorWall extends Thread {
     private boolean isTouchingDS = false;
     private boolean isTouchingUPDW = false;
     public static CollisionDetectorWall instance = null;
-    
+    public boolean isRunning = true;
     public CollisionDetectorWall(){
         instance = this;
     }
     
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             try
             {
@@ -114,6 +114,9 @@ public class CollisionDetectorWall extends Thread {
             }
         }
     }
-
+    public void kill()
+    {
+        isRunning = false;
+    }
     
 }

@@ -27,7 +27,7 @@ public class LevelInstantiator {
     public void ChangeLvl(char a){
         
         GameWindow.instance.stopThreads();
-        
+        SearchOfTheLostPussy.canRefresh = false;
         if(a == '+'){
 
             currentLvl++;
@@ -62,6 +62,18 @@ public class LevelInstantiator {
                             x++;
                             count++;
                         }
+                        if(word.equals("Text16"))
+                        {
+                            new EnemyBomber(x*64,y*64);
+                            x++;
+                            count++;
+                        }
+                        if(word.equals("Text17"))
+                        {
+                            new EnemyShooter(x*64,y*64);
+                            x++;
+                            count++;
+                        }
                         if(word.equals("Text18"))
                         {
                             new Enemy(x*64,y*64);
@@ -72,7 +84,8 @@ public class LevelInstantiator {
                         {
                             try
                             {
-                                MainCharacter.instance.posizione = new Point(x*64,y*64);
+                                MainCharacter.instance.SetPosition(x*64 , y*64); 
+                                ElementInGame.ElementInGame.add(MainCharacter.instance);
                             }
                             catch(Exception exception)
                             {
@@ -99,7 +112,7 @@ public class LevelInstantiator {
             System.out.println("Cambio Livello -");
             
         }
-        
+        SearchOfTheLostPussy.canRefresh = true;
         GameWindow.instance.startThreads();
         
     }

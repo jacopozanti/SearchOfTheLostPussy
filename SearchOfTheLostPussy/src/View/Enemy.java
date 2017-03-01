@@ -115,9 +115,7 @@ public class Enemy extends GameObject{
             ElementInGame.ElementInGame.remove(this);
             if(ElementInGame.ElementInGame.size() == 1)
             {
-                
-                LevelInstantiator.instance.ChangeLvl('+');
-                                
+                LevelInstantiator.instance.ChangeLvl('+');                   
             }
         }
     }

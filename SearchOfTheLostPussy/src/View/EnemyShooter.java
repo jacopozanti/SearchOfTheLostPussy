@@ -6,19 +6,24 @@
 package View;
 
 import Component.GameObject;
+import Component.LevelInstantiator;
 import Controller.AI;
 import Controller.Jump;
 import Model.ElementInGame;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author j.zanti
  */
 public class EnemyShooter extends GameObject{
+    private int imageIndex;
     public EnemyShooter(int x, int y)
     {
+        imageIndex = 0;
         isEnemy = true;
         hitBox = new Rectangle(50,50);
         posizione = new Point(x,y);
@@ -39,9 +44,13 @@ public class EnemyShooter extends GameObject{
             new AI().start();
         }
         ElementInGame.ElementInGame.add(this);
-        dmg = 5;
+        dmg = 1;
         jump = new Jump();
         canShoot = true;
+        image = new ImageIcon(new ImageIcon("Img/Enemy/bidellofermodx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));        
+        this.movimentoDX = new ImageIcon[1]; // 5 giu 6 su
+        this.movimentoSX = new ImageIcon[1]; // 5 giu 6 su
+        LoadImage();
     }
     
     
@@ -64,6 +73,7 @@ public class EnemyShooter extends GameObject{
 //            RepositionHitBox();
 //        }
 //        this.direction = GameObject.Direction.RIGHT;
+        
 
     }
 
@@ -97,10 +107,12 @@ public class EnemyShooter extends GameObject{
             if(direction == Direction.RIGHT)
             {
                 direction = Direction.LEFT;
+                image = this.movimentoDX[0];
             }
             else
             {
                 direction = Direction.RIGHT;
+                image = this.movimentoSX[0];
             }
         }
     }
@@ -111,7 +123,22 @@ public class EnemyShooter extends GameObject{
         if(life < 0)
         {
             ElementInGame.ElementInGame.remove(this);
+            if(ElementInGame.ElementInGame.size() == 1)
+            {
+                
+                LevelInstantiator.instance.ChangeLvl('+');
+                                
+            }
         }
+    }
+    private void LoadImage() {
+        String PATH = "Img/Enemy/";
+        this.movimentoDX[0] = new ImageIcon(new ImageIcon(PATH+"bidelloSparadx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+
+
+        this.movimentoSX[0] = (new ImageIcon(new ImageIcon(PATH+"bidelloSparasx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+
+
     }
     
 }

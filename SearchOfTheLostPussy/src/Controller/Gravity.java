@@ -16,13 +16,13 @@ import java.util.logging.Logger;
  */
 public class Gravity extends Thread{
     public static Gravity instance = null;
-    
+    public boolean isRunning = true;
     public Gravity(){
         instance = this;
     }
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             for (Object object : ElementInGame.ElementInGame) {
                 GameObject gameObject = (GameObject)object;
@@ -37,5 +37,9 @@ public class Gravity extends Thread{
                 Logger.getLogger(Gravity.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

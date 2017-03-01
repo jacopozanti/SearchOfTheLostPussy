@@ -32,7 +32,10 @@ public class SearchOfTheLostPussy {
         System.setProperty("sun.java2d.opengl", "true");
         while(true)
         {
-            gameWindow.repaint();
+            if(canRefresh)
+            {
+                gameWindow.repaint();
+            }
             try {
                 Thread.sleep(16);
             } catch (InterruptedException ex) {

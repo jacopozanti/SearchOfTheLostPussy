@@ -59,6 +59,12 @@ public class MainCharacter extends GameObject {
         new Health();
     }
 
+    public void SetPosition(int x, int y)
+    {
+        this.posizione.x = x;
+        this.posizione.y = y;
+        this.RepositionHitBox();
+    }
     @Override
     public void MoveUp(int movement) {
         if(this.canMoveUP)
@@ -109,7 +115,7 @@ public class MainCharacter extends GameObject {
             this.posizione.y += movement;
             RepositionHitBox();
         }
-        this.direction = Direction.DOWN;
+        //this.direction = Direction.DOWN;
     }
 
     @Override
@@ -133,7 +139,7 @@ public class MainCharacter extends GameObject {
                     image = movimentoDX[5];
                 else
                     image = movimentoSX[5];
-            else 
+            else if(direction == Direction.DOWN)
                 if(facing == Direction.RIGHT)
                     image = movimentoDX[4];
                 else

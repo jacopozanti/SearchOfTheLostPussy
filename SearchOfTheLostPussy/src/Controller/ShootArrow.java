@@ -20,6 +20,7 @@ import searchofthelostpussy.*;
  */
 public class ShootArrow extends Thread implements KeyListener{
     public static ShootArrow instance = null;
+    public boolean isRunning = true;
     public ShootArrow() {
         instance = this;
         GameWindow.instance.addKeyListener(this);
@@ -64,5 +65,9 @@ public class ShootArrow extends Thread implements KeyListener{
     @Override
     public void keyReleased(KeyEvent ke) {
 
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

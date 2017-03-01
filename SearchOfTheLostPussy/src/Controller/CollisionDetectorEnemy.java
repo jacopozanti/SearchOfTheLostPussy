@@ -17,14 +17,14 @@ import java.util.logging.Logger;
  */
 public class CollisionDetectorEnemy extends Thread {
     public static CollisionDetectorEnemy instance = null;
-    
+    public boolean isRunning = true;
     public CollisionDetectorEnemy(){
         instance = this;
     }
     
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             try
             {
@@ -47,5 +47,9 @@ public class CollisionDetectorEnemy extends Thread {
             }
             
         }
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

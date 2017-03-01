@@ -17,13 +17,14 @@ import java.util.logging.Logger;
  */
 public class CanShooter extends Thread{
     public static CanShooter instance = null;
+    public boolean isRunning = true;
     
     public CanShooter(){
         instance = this;
     }
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             for (Object objectIn : ElementInGame.ElementInGame) {
                 GameObject gameObject = (GameObject)objectIn;
@@ -36,5 +37,9 @@ public class CanShooter extends Thread{
                 Logger.getLogger(CanShooter.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

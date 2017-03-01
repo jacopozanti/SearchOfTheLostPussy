@@ -16,14 +16,14 @@ import java.util.logging.Logger;
  */
 public class ProjectileMovement extends Thread{
     public static ProjectileMovement instance = null;
-    
+    public boolean isRunning = true;
     public ProjectileMovement(){
         instance = this;
     }
     
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             try
             {
@@ -55,5 +55,9 @@ public class ProjectileMovement extends Thread{
             {
             }
         }
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }

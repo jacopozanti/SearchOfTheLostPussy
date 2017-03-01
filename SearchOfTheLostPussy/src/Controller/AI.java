@@ -16,6 +16,7 @@ import java.util.logging.Logger;
  */
 public class AI extends Thread{
     public static AI istance = null;
+    public boolean isRunning = true;
     public AI()
     {
         istance = this;
@@ -24,7 +25,7 @@ public class AI extends Thread{
     @Override
     public void run()
     {
-        while(true)
+        while(isRunning)
         {
             try
             {
@@ -61,5 +62,9 @@ public class AI extends Thread{
             {
             }
         }
+    }
+    public void kill()
+    {
+        isRunning = false;
     }
 }
