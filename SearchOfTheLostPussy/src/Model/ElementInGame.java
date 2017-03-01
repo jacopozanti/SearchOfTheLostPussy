@@ -15,4 +15,5 @@ public class ElementInGame {
     public static LinkedList ElementInGame = new LinkedList();
     public static LinkedList WallInGame = new LinkedList();
     public static LinkedList ProjectileInGame = new LinkedList();
+    public static LinkedList HudInGame = new LinkedList();
 }

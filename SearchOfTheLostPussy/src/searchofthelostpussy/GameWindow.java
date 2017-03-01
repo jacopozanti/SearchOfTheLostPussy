@@ -30,21 +30,23 @@ public class GameWindow extends JPanel {
         new CollisionDetectorProjectile().start();
         new ProjectileMovement().start();
         new CanShooter().start();
+        
+
     }
     @Override
     public void paintComponent(Graphics g)
     {
 
             super.paintComponent(g);
-            try
-            {
-                g.drawImage(MainCharacter.instance.image.getImage(), MainCharacter.instance.posizione.x, MainCharacter.instance.posizione.y, this);
 
-                g.drawImage(MainCharacter.instance.image.getImage(), MainCharacter.instance.posizione.x, MainCharacter.instance.posizione.y, this);
+
+                //g.drawImage(MainCharacter.instance.image.getImage(), MainCharacter.instance.posizione.x, MainCharacter.instance.posizione.y, this);
                 for (Object object : ElementInGame.ElementInGame) 
                 {
                     GameObject gameObject = ((GameObject)object);
-                    g.drawRect(gameObject.posizione.x, gameObject.posizione.y, gameObject.hitBox.height, gameObject.hitBox.width);
+                    //g.drawRect(gameObject.posizione.x, gameObject.posizione.y, gameObject.hitBox.height, gameObject.hitBox.width);
+                    g.drawImage(gameObject.image.getImage(), gameObject.posizione.x, gameObject.posizione.y, this);
+
                 }
                 for (Object object : ElementInGame.WallInGame)
                 {
@@ -56,12 +58,17 @@ public class GameWindow extends JPanel {
                 {
                     Projectile projectile = ((Projectile)object);
                     g.drawRect(projectile.posizione.x, projectile.posizione.y, projectile.height , projectile.width);           
+                    g.drawImage(projectile.image.getImage(), projectile.posizione.x, projectile.posizione.y , this);
                 }
-            }
-            catch(Exception ex)
-            {
-                
-            }
+                for (Object object : ElementInGame.HudInGame) 
+                {
+                    Health health = (Health)object;
+                    for(int i = 0; i < MainCharacter.instance.life; i++)
+                    {
+                        g.drawImage(health.img.getImage(), health.position.x + 30*i, health.position.y, this);
+                    }
+                }
+
             
     }
     

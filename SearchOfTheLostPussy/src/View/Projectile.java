@@ -7,8 +7,10 @@ package View;
 
 import Component.GameObject;
 import Model.ElementInGame;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 import searchofthelostpussy.GameWindow;
 
 /**
@@ -29,6 +31,7 @@ public class Projectile extends GameObject {
         dmg = 3;
         ElementInGame.ProjectileInGame.add(this);
         enemies = en;
+        image = new ImageIcon(new ImageIcon("Img/Shot/zanti.png").getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
     }
 
     @Override

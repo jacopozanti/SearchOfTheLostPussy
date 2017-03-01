@@ -31,6 +31,7 @@ public class MainCharacter extends GameObject {
     private ImageIcon[] lookDirection;
     public MainCharacter(int x, int y)
     {
+        life = 5;
         imageIndex = 0;
         canMoveSX = true;
         canMoveDX = true;
@@ -55,6 +56,7 @@ public class MainCharacter extends GameObject {
         this.movimentoDX = new ImageIcon[6]; // 5 giu 6 su
         this.movimentoSX = new ImageIcon[6]; // 5 giu 6 su
         LoadImage();
+        new Health();
     }
 
     @Override

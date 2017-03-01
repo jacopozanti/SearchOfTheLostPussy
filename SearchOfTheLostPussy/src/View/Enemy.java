@@ -11,8 +11,10 @@ import Controller.AI;
 import Controller.CollisionDetectorWall;
 import Controller.Jump;
 import Model.ElementInGame;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,9 +22,10 @@ import java.awt.Rectangle;
  */
 public class Enemy extends GameObject{
 
-    
+    private int imageIndex;
     public Enemy(int x, int y)
     {
+        imageIndex = 0;
         isEnemy = true;
         hitBox = new Rectangle(50,50);
         posizione = new Point(x,y);
@@ -43,8 +46,13 @@ public class Enemy extends GameObject{
             new AI().start();
         }
         ElementInGame.ElementInGame.add(this);
-        dmg = 5;
-        jump = new Jump();
+        dmg = 1;
+        jump = new Jump();        
+        image = new ImageIcon(new ImageIcon("Img/Enemy/bidellofermodx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));        
+        this.movimentoDX = new ImageIcon[4]; // 5 giu 6 su
+        this.movimentoSX = new ImageIcon[4]; // 5 giu 6 su
+        LoadImage();
+        
     }
     
     
@@ -54,6 +62,10 @@ public class Enemy extends GameObject{
         {
             this.posizione.x -= movement;
             RepositionHitBox();
+            image = this.movimentoSX[imageIndex];
+            imageIndex++;
+            if(imageIndex > 2)
+                imageIndex = 0;
         }
         this.direction = Direction.LEFT;
         }
@@ -65,6 +77,10 @@ public class Enemy extends GameObject{
         {
             this.posizione.x += movement;
             RepositionHitBox();
+            image = this.movimentoDX[imageIndex];
+            imageIndex++;
+            if(imageIndex > 2)
+                imageIndex = 0;
         }
         this.direction = Direction.RIGHT;
 
@@ -111,7 +127,21 @@ public class Enemy extends GameObject{
 
     }
     
-    
+    private void LoadImage() {
+        String PATH = "Img/Enemy/";
+        this.movimentoDX[0] = new ImageIcon(new ImageIcon(PATH+"bidellofermodx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+
+        for(int i = 1; i<3; i++)
+        {
+            this.movimentoDX[i] = (new ImageIcon(new ImageIcon(PATH+"bidellomov"+i+"dx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        }
+        this.movimentoSX[0] = (new ImageIcon(new ImageIcon(PATH+"bidellofermosx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+
+        for(int i = 1; i<3; i++)
+        {
+            this.movimentoSX[i] = (new ImageIcon(new ImageIcon(PATH+"bidellomov"+i+"sx.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        }
+    }
     
     
     

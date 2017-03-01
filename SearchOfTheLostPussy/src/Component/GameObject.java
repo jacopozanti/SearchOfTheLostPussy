@@ -48,6 +48,7 @@ public abstract class GameObject {
     public int dmg;
     public boolean moveRx = true;
     public boolean canShoot = false;
+    public ImageIcon img;
     //MOVIMENTI
     public abstract void MoveLeft(int movement);
     public abstract void MoveRight(int movement);

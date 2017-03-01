@@ -7,6 +7,7 @@ package Component;
 
 import Model.ElementInGame;
 import View.*;
+import java.awt.Point;
 import java.io.*;
 import searchofthelostpussy.*;
 /**
@@ -34,7 +35,6 @@ public class LevelInstantiator {
 
             int y = 0;
             int count = 0;
-            MainCharacter.instance = null;
             ElementInGame.ElementInGame.clear();
             ElementInGame.ProjectileInGame.clear();
             ElementInGame.WallInGame.clear();
@@ -67,7 +67,15 @@ public class LevelInstantiator {
                         }
                         if(word.equals("Text19"))
                         {
-                            new MainCharacter(x*64,y*64);
+                            try
+                            {
+                                MainCharacter.instance.posizione = new Point(x*64,y*64);
+                            }
+                            catch(Exception exception)
+                            {
+                                new MainCharacter(x*64,y*64);
+                                System.out.println("err");
+                            }
                             x++;
                             count++;
                         }

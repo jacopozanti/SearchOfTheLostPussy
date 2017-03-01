@@ -26,31 +26,39 @@ public class AI extends Thread{
     {
         while(true)
         {
-            for (Object object : ElementInGame.ElementInGame) {
-                GameObject gameObject = (GameObject)object;
-                if(gameObject.isEnemy)
-                {
-                    if(gameObject.moveRx)
+            try
+            {
+                for (Object object : ElementInGame.ElementInGame) {
+                    GameObject gameObject = (GameObject)object;
+                    if(gameObject.isEnemy)
                     {
-                        if(gameObject.canMoveDX)
-                            gameObject.MoveRight(1);
+                        if(gameObject.moveRx)
+                        {
+                            if(gameObject.canMoveDX)
+                                gameObject.MoveRight(2);
+                            else
+                                gameObject.moveRx = false;
+                        }
                         else
-                            gameObject.moveRx = false;
+                        {
+                            if(gameObject.canMoveSX)
+                                gameObject.MoveLeft(2);
+                            else
+                                gameObject.moveRx = true;  
+                        }
+                        gameObject.Shoot();
                     }
-                    else
-                    {
-                        if(gameObject.canMoveSX)
-                            gameObject.MoveLeft(1);
-                        else
-                            gameObject.moveRx = true;  
-                    }
-                    gameObject.Shoot();
+
                 }
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
-            try {
-                Thread.sleep(5);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
+            catch (Exception exception)
+            {
             }
         }
     }
